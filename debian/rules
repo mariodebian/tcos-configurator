@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+DEB_PYTHON_SYSTEM=pysupport
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+
+build/tcos-configurator::
+	make
+
+
+binary-install/tcos-configurator::
+	# clean svn dirs
+	find $(CURDIR)/debian/tcos-configurator -type d -name .svn | xargs rm -rf --
+	dh_desktop

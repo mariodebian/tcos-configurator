@@ -179,7 +179,7 @@ class TcosStandalone:
         
         # vars
         self.v={}
-        
+        self.begin_usernumber=1
         gtk.glade.bindtextdomain(PACKAGE, LOCALE_DIR)
         gtk.glade.textdomain(PACKAGE)
 
@@ -259,9 +259,12 @@ class TcosStandalone:
         for widget in ['scale_number_users', 'txt_prefix', 'txt_groups', 'lbl_users', 'btn_commit_users']:
             self.w[widget]=self.ui.get_widget(widget)
         
+        self.w['txt_prefix'].connect('changed', self.on_scale_number_users)
+        
         self.w['scale_number_users'].connect('value_changed', self.on_scale_number_users)
         self.on_scale_number_users(self.w['scale_number_users'])
         
+        self.w['btn_commit_users'].set_sensitive(False)
         self.w['btn_commit_users'].connect('clicked', self.on_btn_commit_users)
         
         
@@ -299,7 +302,21 @@ class TcosStandalone:
         self.w['btn_launch_tcosconfig'].connect('clicked', self.on_btn_launch_tcosconfig)
         
         
-        
+    def read_mayor_generated_users(self, prefix):
+        if prefix == '': return
+        tmpusers=[]
+        maxu=0
+        # read generated users
+        for user in pwd.getpwall():
+            if user[0].startswith(prefix):
+                u=user[0].replace(prefix,'')
+                try:
+                    i=int(u)
+                    if i> maxu: maxu=i
+                except: pass
+        self.begin_usernumber=maxu+1
+        print_debug("read_mayor_generated_users() begin=%s"%self.begin_usernumber)
+        return "%02d"%maxu
 
     def on_serverip_blur(self, widget, event):
         value=widget.get_text()
@@ -406,10 +423,14 @@ class TcosStandalone:
 
 ############## users ##########################################################
     def on_scale_number_users(self, widget):
-        num=int(widget.get_value())
+        num=int(self.w['scale_number_users'].get_value())
         prefix=self.w['txt_prefix'].get_text()
-        init=1
-        end=num
+        if prefix=='':
+            self.w['btn_commit_users'].set_sensitive(False)
+            return
+        self.read_mayor_generated_users(prefix)
+        init=self.begin_usernumber
+        end=self.begin_usernumber+num
         self.w['lbl_users'].set_text(_("Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d") %{"prefix":prefix, "init":init, "end":end} )
         self.w['lbl_users'].show()
         self.w['btn_commit_users'].set_sensitive(True)
@@ -436,7 +457,7 @@ class TcosStandalone:
         self.w['lbl_users'].set_text("")
         gtk.gdk.threads_leave()
         
-        for i in range(number):
+        for i in range(self.begin_usernumber, self.begin_usernumber+number):
             # range starts in 0
             i="%02d"%(i+1)
             username="%s%s"%(user_prefix, i)
@@ -455,6 +476,7 @@ class TcosStandalone:
                 gtk.gdk.threads_leave()
                 time.sleep(1)
         
+        self.read_mayor_generated_users(user_prefix)
         gtk.gdk.threads_enter()
         self.w['lbl_users'].set_markup( _("<b>Done</b>") )
         gtk.gdk.threads_leave()
@@ -558,7 +580,9 @@ class TcosStandalone:
             newdata.append("iface %s inet static"%data['iface'])
             newdata.append("\taddress %s"%data['address'])
             newdata.append("\tnetmask %s"%data['netmask'])
-            newdata.append("\tgateway %s"%data['gateway'])
+            if ".".join(data['gateway'].split('.')[0:3]) == ".".join(data['address'].split('.')[0:3]):
+                # only save gateway if is in the same network
+                newdata.append("\tgateway %s"%data['gateway'])
             newdata.append("\n\n")
         print_debug(newdata)
         try:
@@ -568,7 +592,6 @@ class TcosStandalone:
         for line in newdata:
             f.write(line + "\n")
         f.close()
-        self.exe_cmd("sync")
         return True
 
 ################### combo stuff ##############################
@@ -778,7 +801,7 @@ class TcosStandalone:
                 self.exe_cmd("ifdown --all --exclude=lo")
                 time.sleep(2)
                 self.exe_cmd("ifup --all --exclude=lo")
-                self.exe_cmd("ifconfig %s"%server_iface)
+                #self.exe_cmd("ifconfig %s"%server_iface)
                 gtk.gdk.threads_enter()
                 self.w['lbl_dhcp'].set_markup( _("<b>Done</b>") )
                 gtk.gdk.threads_leave()

@@ -1,3 +1,14 @@
+tcos-configurator (1.2) unstable; urgency=low
+
+  * tcos-configurator
+    - Only save gateway if is in same network that server_ip
+    - Read (using pwd) all usernames and create users from last old user created 
+  * Create link tcos-configurator.py (make pot need this .py files to extract translatable strings)
+  * Makefile:
+    - Create target clean
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Wed, 09 Jul 2008 15:56:37 +0200
+
 tcos-configurator (1.1) unstable; urgency=low
 
   * First public upload (not only for MaX 4.0)

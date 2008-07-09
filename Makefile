@@ -8,6 +8,9 @@ endif
 all:
 	#none
 
+clean:
+	find -name "*~" | xargs rm -f
+
 test:
 	@echo "TCOS_CONFIGURATOR VERSION="$(VERSION)
 

@@ -86,7 +86,7 @@ debug=False
 PACKAGE="tcos-configurator"
 
 # if exec from svn or sources dir
-if os.path.isdir('./debian'):
+if os.path.isfile('./setup.py'):
     LOCALE_DIR = "./po/"
     GLADE_DIR = "./"
     IMG_DIR = "./images/"

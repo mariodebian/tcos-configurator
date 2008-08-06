@@ -1,3 +1,9 @@
+tcos-configurator (1.4) unstable; urgency=low
+
+  * Enable local exec if setup.py is found
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Wed, 06 Aug 2008 19:53:18 +0200
+
 tcos-configurator (1.3) unstable; urgency=low
 
   * Add pt_BR translation, thanks to: Aécio dos Santos Pires <aecio at comunicacaodigital.org>

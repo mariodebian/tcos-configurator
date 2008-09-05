@@ -11,7 +11,7 @@ XS-Vcs-Svn: https://www.tcosproject.org/svn/tcos/trunk/tcos-configurator
 
 Package: tcos-configurator
 Architecture: all
-Depends: tcosconfig, gksu, python-gtk2, python-glade2, 
+Depends: tcosconfig, gksu, python-gtk2, python-glade2, python-netifaces, 
          python-configobj, ${misc:Depends}, ${shlibs:Depends}, ${python:Depends}
 Description: PyGTK tool to configure some needed services to get a TCOS server
  Contains:

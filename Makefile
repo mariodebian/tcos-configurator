@@ -10,6 +10,7 @@ all:
 
 clean:
 	find -name "*~" | xargs rm -f
+	rm -f tcos-configurator.glade.bak tcos-configurator.gladep
 
 test:
 	@echo "TCOS_CONFIGURATOR VERSION="$(VERSION)

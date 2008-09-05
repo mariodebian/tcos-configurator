@@ -48,6 +48,8 @@ from subprocess import Popen, PIPE, STDOUT
 import popen2
 from threading import Thread
 
+import netifaces
+
 import pwd
 
 import gobject
@@ -221,7 +223,7 @@ class TcosStandalone:
         self.w={}
         for widget in ['img_logo', 'combo_interfaces', 'txt_serverip', 'txt_startip', 
                        'txt_endip', 'btn_configure_dhcp', 'combo_boot_mode', 'hbox_dynamic',
-                       'ck_static', 'btn_hostname_help', 'txt_hostname_prefix', 'lbl_dhcp']:
+                       'ck_static', 'btn_hostname_help', 'txt_hostname_prefix', 'lbl_dhcp', 'label_boot_mode']:
             self.w[widget]=self.ui.get_widget(widget)
         
         self.w['lbl_dhcp'].set_text("")
@@ -234,6 +236,9 @@ class TcosStandalone:
         
         self.populate_select(self.w['combo_boot_mode'], self.BOOT_MODES)
         self.set_active_in_select(self.w['combo_boot_mode'], self.BOOT_MODES[0][0])
+        if len(self.BOOT_MODES) < 2:
+            self.w['combo_boot_mode'].hide()
+            self.w['label_boot_mode'].hide()
         
         self.interfaces=self.getNetInterfaces()
         self.configured_interfaces=self.read_etc_network_interfaces()
@@ -346,11 +351,14 @@ class TcosStandalone:
                 self.w['ck_static'].set_active(True)
                 self.w['lbl_dhcp'].set_markup( _("WARNING:\n<b>Network interface don't have IP</b>") )
                 self.w['lbl_dhcp'].show()
-                print_debug("iface=%s don't have ip" %iface)
+                self.w['txt_serverip'].set_text('')
+                self.w['txt_startip'].set_text('')
+                self.w['txt_endip'].set_text('')
+                print_debug("iface=%s DON'T HAVE IP" %iface)
         if configured:
             self.w['lbl_dhcp'].hide()
-            self.w['hbox_dynamic'].show()
-            self.w['ck_static'].set_active(True)
+            self.w['hbox_dynamic'].hide()
+            self.w['ck_static'].set_active(False)
 
     def set_dhcp_modified(self, *args):
         self.dhcp_modified=True
@@ -486,15 +494,34 @@ class TcosStandalone:
 
     def get_ip_address(self, ifname):
         print_debug("get_ip_address() ifname=%s" %(ifname) )
+        if not ifname in netifaces.interfaces():
+            return None
+        ip=netifaces.ifaddresses(ifname)
+        if ip.has_key(netifaces.AF_INET):
+            return ip[netifaces.AF_INET][0]['addr']
+        return None
+        """
+        old code
+        print_debug("get_ip_address() ifname=%s" %(ifname) )
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         return socket.inet_ntoa(fcntl.ioctl(
             s.fileno(),
             0x8915,  # SIOCGIFADDR
             struct.pack('256s', ifname[:15])
         )[20:24])
+        """
 
 
     def getNetInterfaces(self):
+        interfaces=[]
+        for dev in netifaces.interfaces():
+            if dev != "lo" and dev != "sit0" and not dev.startswith("vbox") and not dev.startswith("vmnet") and not dev.startswith("wmaster"):
+                ip=self.get_ip_address(dev)
+                print_debug("getNetInterfaces() iface=%s data=%s"%(dev,ip))
+                interfaces.append( [dev, ip] )
+        return interfaces
+        """
+        old code
         interfaces=[]
         for edir in glob.glob("/sys/class/net/*"):
             edir=os.path.basename(edir)
@@ -507,6 +534,7 @@ class TcosStandalone:
                     pass
                 interfaces.append( [edir, IP])
         return interfaces
+        """
 
     def read_etc_network_interfaces(self):
         interfaces={}

@@ -1,3 +1,11 @@
+tcos-configurator (1.5) unstable; urgency=low
+
+  * Now Depends on python-netifaces
+  * Change ifaces detection code to use netifaces module
+  * Hide como_boot_mode (and label) if only one method is found
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Fri, 05 Sep 2008 11:13:31 +0200
+
 tcos-configurator (1.4) unstable; urgency=low
 
   * Enable local exec if setup.py is found

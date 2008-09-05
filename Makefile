@@ -47,4 +47,8 @@ patch_hardy: patch_version
 patch_max: patch_version
 	sed -i -e 's/Configurar servidor TCOS/Configurar servidor MAX/g' po/es.po
 	sed -i -e 's/Configurador del servidor TCOS/Configurador del servidor MAX/g' po/es.po
+
+patch_intrepid: patch_version
+
+
 .PHONY:

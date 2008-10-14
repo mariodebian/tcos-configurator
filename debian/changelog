@@ -1,3 +1,10 @@
+tcos-configurator (1.6) unstable; urgency=low
+
+  * debian/rules:
+    - Move tcos-configurator to usr/sbin
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Tue, 14 Oct 2008 11:31:19 +0200
+
 tcos-configurator (1.5) unstable; urgency=low
 
   * Now Depends on python-netifaces

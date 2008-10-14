@@ -12,4 +12,7 @@ build/tcos-configurator::
 binary-install/tcos-configurator::
 	# clean svn dirs
 	find $(CURDIR)/debian/tcos-configurator -type d -name .svn | xargs rm -rf --
+	mkdir -p $(CURDIR)/debian/tcos-configurator/usr/sbin
+	mv $(CURDIR)/debian/tcos-configurator/usr/bin/tcos-configurator $(CURDIR)/debian/tcos-configurator/usr/sbin/tcos-configurator
+	rmdir $(CURDIR)/debian/tcos-configurator/usr/bin
 	dh_desktop

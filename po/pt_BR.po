@@ -1,34 +1,34 @@
-# Portuguese translations for tcos-configurator package
-# Traduções em português para o pacote tcos-configurator.
-# Copyright (C) 2008 THE tcos-configurator'S COPYRIGHT HOLDER
+# translation of tcos-configurator.
+# Copyright (C) 2009 THE tcos-configurator'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the tcos-configurator package.
-# Aécio dos Santos Pires <aecio@comunicacaodigital.org>, 2008.
+# <>, 2009.
+# , fuzzy
+# <>, 2009.
 # 
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: tcos-configurator 0\n"
+"Project-Id-Version: tcos-configurator 0.2.17~rc8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-07-04 11:22+0200\n"
-"PO-Revision-Date: 2008-07-16 17:57-0300\n"
-"Last-Translator: Aécio dos Santos Pires <aecio@comunicacaodigital.org>\n"
-"Language-Team: Brazilian Portuguese\n"
+"PO-Revision-Date: 2009-01-14 09:59-0300\n"
+"Last-Translator: Aécio dos Santos Pires <aeciopires@gmail.com>\n"
+"Language-Team: Portuguese/Brazil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);"
+"Content-Transfer-Encoding: 8bit"
 
 #: ../tcos-configurator.glade:9
 msgid "TCOS Server configurator"
-msgstr "Gerente de configurações do servidor Tcos"
+msgstr "TCOS Server Configurator"
 
 #: ../tcos-configurator.glade:53
 msgid "<span size=\"x-large\">Configure TCOS server</span>"
-msgstr "<span size=\"x-large\">Configure o servidor Tcos</span>"
+msgstr "<span size=\"x-large\">Configurando o servidor TCOS</span>"
 
 #: ../tcos-configurator.glade:105
 msgid "DHCP net interface"
-msgstr "Interface de rede a ser usada pelo DHCP"
+msgstr "Interface de rede DHCP"
 
 #: ../tcos-configurator.glade:150
 msgid "Start IP"
@@ -41,11 +41,11 @@ msgstr "IP final"
 #: ../tcos-configurator.glade:318 ../tcos-configurator.glade:861
 #: ../tcos-configurator.glade:1140
 msgid "Commit changes"
-msgstr "Aplicar as alterações"
+msgstr "Aplicar as modificações"
 
 #: ../tcos-configurator.glade:357
 msgid "Boot mode"
-msgstr "Modo de inicialização"
+msgstr "Método de Boot"
 
 #: ../tcos-configurator.glade:403
 msgid "Server IP"
@@ -55,15 +55,15 @@ msgstr "IP do servidor"
 msgid ""
 "WARNING:\n"
 "<b>Detected dynamic IP</b>"
-msgstr "Aviso:\n"
-"<b>Endereço IP detectado dinamicamente.</b>"
+msgstr "AVISO:\n"
+"<b>IP dinâmico detectado</b>"
 
 #: ../tcos-configurator.glade:484
 msgid ""
 "configure this IP as static\n"
 "(disable NetworkManager)"
-msgstr "Configurar o IP estático\n"
-"(desativar NetworkManager)"
+msgstr "Configure este IP como estático\n"
+"(desabilitando o NetworkManager)"
 
 #: ../tcos-configurator.glade:516
 msgid "host"
@@ -79,7 +79,7 @@ msgstr "Servidor DHCP"
 
 #: ../tcos-configurator.glade:639
 msgid "Numer of users to create"
-msgstr "Número de usuários a criar"
+msgstr "Quantidade de usuário a serem criados"
 
 #: ../tcos-configurator.glade:667
 msgid "Prefix"
@@ -90,43 +90,44 @@ msgid ""
 "Groups to add users\n"
 "(use spaces to separate)\n"
 "(default fuse)\n"
-msgstr "Grupos para adicionar os usuário\n"
-"(use espaço para separá-los)\n"
-"(o padrão é fuse)\n"
+msgstr "Adicione estes usuário ao(s) grupo(s)\n"
+"(use o espaço em branco para\n"
+"separar os nomes dos grupos.\n"
+"O padrão é o fuse).\n"
 
 #: ../tcos-configurator.glade:778
 msgid "user"
-msgstr "usuario"
+msgstr "usuário"
 
 #: ../tcos-configurator.glade:900
 msgid "<b>Passwords are same string as username</b>"
-msgstr "<b>As senhas são palavras como o nome do usuário.</b>"
+msgstr "<b>As senhas são palavras, assim como os nomes dos usuários</b>"
 
 #: ../tcos-configurator.glade:934
 msgid "Remote users"
-msgstr "Usuários remotos"
+msgstr "Usuários Remotos"
 
 #: ../tcos-configurator.glade:975
 msgid "enable autologin"
-msgstr "ativar login automático"
+msgstr "Habilitar o login automático"
 
 #: ../tcos-configurator.glade:995
 msgid ""
 "Autologin timeout\n"
 "(in seconds)"
-msgstr "Tempo para iniciar o login\n"
-"automático (em segundos)"
+msgstr "Inicie o autologin após\n"
+"(tempo em segundos)"
 
 #: ../tcos-configurator.glade:1046
 msgid ""
 "Remote login\n"
 "(required for TCOS)"
 msgstr "Login remoto\n"
-"(requerido pelo Tcos)"
+"(requerido pelo TCOS)"
 
 #: ../tcos-configurator.glade:1076
 msgid "enable remote login"
-msgstr "ativar o login remoto"
+msgstr "Habilitar o login remoto"
 
 #: ../tcos-configurator.glade:1212
 msgid "Autologin"
@@ -147,22 +148,24 @@ msgid ""
 "\n"
 "You can add or remove some tools in images and configure a lot of hardware "
 "settings."
-msgstr "O TcosConfig é uma ferramenta para gerar as imagens de boot do Tcos via rede.\n"
-"As imagens são carregadas usando o protocolo PXE.\n"
+msgstr "O TcosConfig é uma ferramenta para gerar as imagens de \n"
+"boot via rede. As imagens são obtidas usando o protocolo PXE.\n"
 "\n"
-"Você pode adicionar ou remover algumas ferramentas nas imagens, além de configurar vários tipos de hardware."
+"Você pode adicionar ou remover algumas ferramentas\n"
+"nas imagens, além de configurá-las para vários tipos\n"
+"de hardware."
 
 #: ../tcos-configurator.glade:1435
 msgid "Boot images"
-msgstr "Imagens de boot"
+msgstr "Imagens de Boot"
 
 #: ../tcos-configurator.glade:1492
 msgid "Autologin help"
-msgstr "Ajuda para o login automático"
+msgstr "Ajuda para o Autologin"
 
 #: ../tcos-configurator.glade:1516
 msgid "<b>TCOS Autologin</b>"
-msgstr "<b>Login automático do Tcos</b>"
+msgstr "<b>TCOS Autologin</b>"
 
 #: ../tcos-configurator.glade:1541
 msgid ""
@@ -172,10 +175,10 @@ msgid ""
 "as usernames.\n"
 "\n"
 "Example:"
-msgstr "O Tcos pode trabalhar no modo kiosko.\n"
+msgstr "O TCOS pode trabalhar no modo kiosk.\n"
 "\n"
-"Você precisa configurar todos os nomes do clientes com <b><u>algum</u></b> valor "
-"como os nomes dos usuários.\n"
+"Você precisa configurar os nomes dos \n"
+"terminais com <b><u>os mesmos</u></b> nomes dos usuários.\n"
 "\n"
 "Exemplo:"
 
@@ -183,17 +186,17 @@ msgstr "O Tcos pode trabalhar no modo kiosko.\n"
 msgid ""
 "<b>Users:</b> from user01 to user15\n"
 "<b>Hostnames:</b> from user01 to user15"
-msgstr "<b>Usuários:</b> usuário01 até usuário15\n"
-"<b>Nome dos terminais:</b> terminal01 até terminal15"
+msgstr "<b>Usuários:</b> de usuario01 a usuario15\n"
+"<b>Terminais:</b> de usuario01 a usuario15"
 
 #: ../tcos-configurator.glade:1596
 msgid ""
 "<b>1.-</b> Create users with tcos-configurator\n"
 "<b>2.-</b> Configure DHCP with a 15 IP's range (or more)\n"
 "<b>3.-</b> Edit <b>/etc/hosts</b> and add this:"
-msgstr "<b>1.-</b> Criar os usuários com o tcos-configurator\n"
-"<b>2.-</b> Configurar no DHCP uma faixa de 15 IP's(ou mais)\n"
-"<b>3.-</b> Editar o arquivo <b>/etc/hosts</b> e adicionar:"
+msgstr "<b>1.-</b> Crie os usuários com o tcos-configurator\n"
+"<b>2.-</b> Configure no DHCP, uma faixa com 15 IP's (ou mais)\n"
+"<b>3.-</b> Edite o arquivo <b>/etc/hosts</b> e adicione:"
 
 #: ../tcos-configurator.glade:1623
 msgid ""
@@ -202,19 +205,19 @@ msgid ""
 "192.168.0.103 user03\n"
 "...\n"
 "192.168.0.115 user15"
-msgstr "192.168.0.101 terminal01\n"
-"192.168.0.102 terminal02\n"
-"192.168.0.103 terminal03\n"
+msgstr "192.168.0.101 usuário01\n"
+"192.168.0.102 usuário02\n"
+"192.168.0.103 usuário03\n"
 "...\n"
-"192.168.0.115 terminal15"
+"192.168.0.115 usuário15"
 
 #: ../tcos-configurator.py:193
 msgid "TCOS and Backharddi"
-msgstr "Tcos e Backharddi"
+msgstr "TCOS e Backharddi"
 
 #: ../tcos-configurator.py:194 ../tcos-configurator.py:199
 msgid "TCOS"
-msgstr "Tcos"
+msgstr "TCOS"
 
 #: ../tcos-configurator.py:195
 msgid "Backharddi"
@@ -224,28 +227,28 @@ msgstr "Backharddi"
 msgid ""
 "WARNING:\n"
 "<b>Network interface don't have IP</b>"
-msgstr "Aviso:\n"
-"<b>A interface de rede não possui IP.</b>"
+msgstr "AVISO:\n"
+"<b>Essa interface de rede não possui IP</b>"
 
 #: ../tcos-configurator.py:384
 msgid ""
 "<b>Reboot required (or restart gdm daemon) to enable new GDM settings</b>"
-msgstr "<b>Reinicie o servidor (ou reinicie o daemon gdm) para ativar as novas configurações.</b>"
+msgstr "<b>Reinicie o servidor (ou reinicie o daemon gdm) para habilitar as novas configurações do GDM.</b>"
 
 #: ../tcos-configurator.py:413
 #, python-format
 msgid "Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d"
-msgstr "Crie de %(prefix)s%(init)02d até %(prefix)s%(end)02d"
+msgstr "Criando de %(prefix)s%(init)02d a %(prefix)s%(end)02d"
 
 #: ../tcos-configurator.py:446
 #, python-format
 msgid "Creating user: '%s'"
-msgstr "Criando o usuário: '%s'"
+msgstr "Criando os usuários: '%s'"
 
 #: ../tcos-configurator.py:454
 #, python-format
 msgid "User already exists: '%s'"
-msgstr "Usuário(s) já criado(s): '%s'"
+msgstr "Os seguintes usuários já existem: '%s'"
 
 #: ../tcos-configurator.py:459 ../tcos-configurator.py:783
 #: ../tcos-configurator.py:805
@@ -254,27 +257,28 @@ msgstr "<b>Feito</b>"
 
 #: ../tcos-configurator.py:643
 msgid "Configuring DHCP service..."
-msgstr "Configurando o serviço DHCP ..."
+msgstr "Configurando o serviço DHCP..."
 
 #: ../tcos-configurator.py:728
 msgid ""
 "<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
 "Are you root?"
-msgstr "<b>Erro ao salvar o arquivo /etc/dhcp3/dhcpd.conf.</b>\n"
-"Você é o usuário root?"
+msgstr "<b>Erro ao alterar o arquivo /etc/dhcp3/dhcpd.conf.</b>\n"
+"Você é root?"
 
 #: ../tcos-configurator.py:773
 msgid "Configured static network"
-msgstr "Rede configurada estaticamente"
+msgstr "A rede estática foi configurada"
 
 #: ../tcos-configurator.py:788
 msgid "ERROR:<b>Error configuring static network.</b>"
-msgstr "Erro <b>ao configurar a rede estática.</b>"
+msgstr "ERRO:<b>Erro ao configurar a rede estática.</b>"
 
 #: ../tcos-configurator.py:794
 msgid "Restarting DHCP service..."
-msgstr "Reiniciando o servidor DHCP ..."
+msgstr "Reiniciando o serviço DHCP..."
 
 #: ../tcos-configurator.py:807
 msgid "<b>Error restarting DHCP server.</b>"
-msgstr "<b>Erro ao reiniciar o servidor DHCP.</b>"
+msgstr "<b>Erro ao reiniciar o serviço DHCP.</b>"
+

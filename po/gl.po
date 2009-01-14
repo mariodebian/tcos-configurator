@@ -103,7 +103,6 @@ msgid "user"
 msgstr "usuario"
 
 #: ../tcos-configurator.glade:900
-#, fuzzy
 msgid "<b>Passwords are same string as username</b>"
 msgstr "<b>Os contrasinais son o nome do usuario</b>"
 

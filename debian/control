@@ -5,8 +5,8 @@ Maintainer: Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
 Build-Depends: debhelper (>= 4.0.0), cdbs, python, python-support
 Standards-Version: 3.7.3
 XS-Python-Version: >= 2.4
-XS-Vcs-Browser: http://trac.tcosproject.org/browser/trunk/tcos-configurator
-XS-Vcs-Svn: https://www.tcosproject.org/svn/tcos/trunk/tcos-configurator
+Vcs-Git: http://tcosproject.org/git/tcos-configurator.git
+Vcs-Browser: http://tcosproject.org/cgit/cgit.cgi/tcos-configurator.git/
 
 
 Package: tcos-configurator

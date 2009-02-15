@@ -1,8 +1,9 @@
 tcos-configurator (1.8) unstable; urgency=low
 
   * Update Vcs- debian/control headers to new GIT repos
+  * Add patch_lenny
 
- -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Mon, 02 Feb 2009 01:27:55 +0100
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Sun, 15 Feb 2009 20:20:33 +0100
 
 tcos-configurator (1.7) unstable; urgency=low
 

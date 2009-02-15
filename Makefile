@@ -38,6 +38,8 @@ patch_max: patch_version
 patch_etch: patch_version
 	sed -i '/\/usr\/bin\/env/s/python/python2.4/g' tcos-configurator
 
+patch_lenny: patch_version
+
 patch_unstable: patch_version
 
 patch_testing: patch_version

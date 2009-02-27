@@ -1,3 +1,9 @@
+tcos-configurator (1.9) unstable; urgency=low
+
+  * Set ipname in /etc/hosts write loop
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Fri, 27 Feb 2009 14:43:52 +0100
+
 tcos-configurator (1.8) unstable; urgency=low
 
   * Update Vcs- debian/control headers to new GIT repos

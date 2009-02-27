@@ -803,6 +803,7 @@ class TcosStandalone:
         
         for ip in range ( (ip_end - ip_start) + 1 ):
             ip=ip_start + ip
+            ipname=ip
             if ip > 100:
                 ipname=ip-100
             self.write_into_etc_host( ["%s.%d"%(ip_pref, ip), "%s%02d"%(txt_prefix, ipname) ]  )

@@ -133,6 +133,8 @@ DHCP_CONF=[
 ['ddns-update-style ad-hoc;',
     'option subnet-mask __MASK__;',
     '#option domain-name "tcos-domain.org";',
+    '# set authorative to be first providing DHCP lease',
+    'authorative;',
     'option option-128 code 128 = string;',
     'option option-129 code 129 = text;',
     'get-lease-hostnames true;',
@@ -500,16 +502,6 @@ class TcosStandalone:
         if ip.has_key(netifaces.AF_INET):
             return ip[netifaces.AF_INET][0]['addr']
         return None
-        """
-        old code
-        print_debug("get_ip_address() ifname=%s" %(ifname) )
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        return socket.inet_ntoa(fcntl.ioctl(
-            s.fileno(),
-            0x8915,  # SIOCGIFADDR
-            struct.pack('256s', ifname[:15])
-        )[20:24])
-        """
 
 
     def getNetInterfaces(self):
@@ -520,21 +512,6 @@ class TcosStandalone:
                 print_debug("getNetInterfaces() iface=%s data=%s"%(dev,ip))
                 interfaces.append( [dev, ip] )
         return interfaces
-        """
-        old code
-        interfaces=[]
-        for edir in glob.glob("/sys/class/net/*"):
-            edir=os.path.basename(edir)
-            if edir != "lo" and edir != "sit0" and not edir.startswith("vbox") and not edir.startswith("vmnet"):
-                IP=None
-                try:
-                    IP=self.get_ip_address(edir)
-                    #interfaces.append( [edir, IP] )
-                except:
-                    pass
-                interfaces.append( [edir, IP])
-        return interfaces
-        """
 
     def read_etc_network_interfaces(self):
         interfaces={}

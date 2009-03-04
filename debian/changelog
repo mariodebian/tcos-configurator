@@ -1,3 +1,9 @@
+tcos-configurator (1.10) unstable; urgency=low
+
+  * Add authorative in dhcpd.conf and remove some old and commented code
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Wed, 04 Mar 2009 20:52:43 +0100
+
 tcos-configurator (1.9) unstable; urgency=low
 
   * Set ipname in /etc/hosts write loop

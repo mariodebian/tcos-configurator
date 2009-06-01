@@ -1,3 +1,10 @@
+tcos-configurator (1.11) unstable; urgency=low
+
+  * Remove obsolete popen2 module and use subprocess
+  * Don't show interfaces in HIDDEN_INTERFACES var
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Mon, 01 Jun 2009 12:30:29 +0200
+
 tcos-configurator (1.10) unstable; urgency=low
 
   * Add authorative in dhcpd.conf and remove some old and commented code

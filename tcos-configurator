@@ -45,7 +45,6 @@ from gettext import bindtextdomain, textdomain
 from locale import setlocale, LC_ALL
 
 from subprocess import Popen, PIPE, STDOUT
-import popen2
 from threading import Thread
 
 import netifaces
@@ -175,6 +174,9 @@ if os.path.isfile(GDM_CONF_FILE + "-custom"):
 
 if os.path.isfile("/etc/gdm/gdm-cdd.conf"):
     GDM_CONF_FILE="/etc/gdm/gdm-cdd.conf"
+
+HIDDEN_INTERFACES=['lo', 'pan0', 'sit0']
+
 ################################################################################
 
 class TcosStandalone:
@@ -507,7 +509,7 @@ class TcosStandalone:
     def getNetInterfaces(self):
         interfaces=[]
         for dev in netifaces.interfaces():
-            if dev != "lo" and dev != "sit0" and not dev.startswith("vbox") and not dev.startswith("vmnet") and not dev.startswith("wmaster"):
+            if not dev in HIDDEN_INTERFACES and not dev.startswith("vbox") and not dev.startswith("vmnet") and not dev.startswith("wmaster"):
                 ip=self.get_ip_address(dev)
                 print_debug("getNetInterfaces() iface=%s data=%s"%(dev,ip))
                 interfaces.append( [dev, ip] )
@@ -845,13 +847,15 @@ class TcosStandalone:
 
 ################################################################################
 
-        
+
     def exe_cmd(self, cmd, verbose=1):
-        print_debug("exe_cmd() cmd=%s" %cmd)
+        self.p = Popen(cmd, shell=True, bufsize=0, stdout=PIPE, stderr=STDOUT, close_fds=True)
+        
         output=[]
-        (stdout, stdin) = popen2.popen2(cmd)
-        stdin.close()
-        for line in stdout:
+        stdout = self.p.stdout
+        if lines == 1:
+            return stdout
+        for line in stdout.readlines():
             if line != '\n':
                 line=line.replace('\n', '')
                 output.append(line)
@@ -865,7 +869,6 @@ class TcosStandalone:
             if verbose == 1:
                 print_debug ( "exe_cmd(%s)=None" %(cmd) )
             return []
-
 
     def quitapp(self,*args):
         print_debug ( "Exiting" )

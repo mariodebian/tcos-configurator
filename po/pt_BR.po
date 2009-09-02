@@ -4,19 +4,19 @@
 # <>, 2009.
 # , fuzzy
 # <>, 2009.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: tcos-configurator 0.2.17~rc8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-04 11:22+0200\n"
+"POT-Creation-Date: 2009-09-02 18:47+0200\n"
 "PO-Revision-Date: 2009-01-14 09:59-0300\n"
 "Last-Translator: Aécio dos Santos Pires <aeciopires@gmail.com>\n"
 "Language-Team: Portuguese/Brazil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: ../tcos-configurator.glade:9
 msgid "TCOS Server configurator"
@@ -55,14 +55,16 @@ msgstr "IP do servidor"
 msgid ""
 "WARNING:\n"
 "<b>Detected dynamic IP</b>"
-msgstr "AVISO:\n"
+msgstr ""
+"AVISO:\n"
 "<b>IP dinâmico detectado</b>"
 
 #: ../tcos-configurator.glade:484
 msgid ""
 "configure this IP as static\n"
 "(disable NetworkManager)"
-msgstr "Configure este IP como estático\n"
+msgstr ""
+"Configure este IP como estático\n"
 "(desabilitando o NetworkManager)"
 
 #: ../tcos-configurator.glade:516
@@ -90,7 +92,8 @@ msgid ""
 "Groups to add users\n"
 "(use spaces to separate)\n"
 "(default fuse)\n"
-msgstr "Adicione estes usuário ao(s) grupo(s)\n"
+msgstr ""
+"Adicione estes usuário ao(s) grupo(s)\n"
 "(use o espaço em branco para\n"
 "separar os nomes dos grupos.\n"
 "O padrão é o fuse).\n"
@@ -115,14 +118,16 @@ msgstr "Habilitar o login automático"
 msgid ""
 "Autologin timeout\n"
 "(in seconds)"
-msgstr "Inicie o autologin após\n"
+msgstr ""
+"Inicie o autologin após\n"
 "(tempo em segundos)"
 
 #: ../tcos-configurator.glade:1046
 msgid ""
 "Remote login\n"
 "(required for TCOS)"
-msgstr "Login remoto\n"
+msgstr ""
+"Login remoto\n"
 "(requerido pelo TCOS)"
 
 #: ../tcos-configurator.glade:1076
@@ -148,7 +153,8 @@ msgid ""
 "\n"
 "You can add or remove some tools in images and configure a lot of hardware "
 "settings."
-msgstr "O TcosConfig é uma ferramenta para gerar as imagens de \n"
+msgstr ""
+"O TcosConfig é uma ferramenta para gerar as imagens de \n"
 "boot via rede. As imagens são obtidas usando o protocolo PXE.\n"
 "\n"
 "Você pode adicionar ou remover algumas ferramentas\n"
@@ -175,7 +181,8 @@ msgid ""
 "as usernames.\n"
 "\n"
 "Example:"
-msgstr "O TCOS pode trabalhar no modo kiosk.\n"
+msgstr ""
+"O TCOS pode trabalhar no modo kiosk.\n"
 "\n"
 "Você precisa configurar os nomes dos \n"
 "terminais com <b><u>os mesmos</u></b> nomes dos usuários.\n"
@@ -186,7 +193,8 @@ msgstr "O TCOS pode trabalhar no modo kiosk.\n"
 msgid ""
 "<b>Users:</b> from user01 to user15\n"
 "<b>Hostnames:</b> from user01 to user15"
-msgstr "<b>Usuários:</b> de usuario01 a usuario15\n"
+msgstr ""
+"<b>Usuários:</b> de usuario01 a usuario15\n"
 "<b>Terminais:</b> de usuario01 a usuario15"
 
 #: ../tcos-configurator.glade:1596
@@ -194,7 +202,8 @@ msgid ""
 "<b>1.-</b> Create users with tcos-configurator\n"
 "<b>2.-</b> Configure DHCP with a 15 IP's range (or more)\n"
 "<b>3.-</b> Edit <b>/etc/hosts</b> and add this:"
-msgstr "<b>1.-</b> Crie os usuários com o tcos-configurator\n"
+msgstr ""
+"<b>1.-</b> Crie os usuários com o tcos-configurator\n"
 "<b>2.-</b> Configure no DHCP, uma faixa com 15 IP's (ou mais)\n"
 "<b>3.-</b> Edite o arquivo <b>/etc/hosts</b> e adicione:"
 
@@ -205,80 +214,109 @@ msgid ""
 "192.168.0.103 user03\n"
 "...\n"
 "192.168.0.115 user15"
-msgstr "192.168.0.101 usuário01\n"
+msgstr ""
+"192.168.0.101 usuário01\n"
 "192.168.0.102 usuário02\n"
 "192.168.0.103 usuário03\n"
 "...\n"
 "192.168.0.115 usuário15"
 
-#: ../tcos-configurator.py:193
+#: ../tcos-configurator.py:221
 msgid "TCOS and Backharddi"
 msgstr "TCOS e Backharddi"
 
-#: ../tcos-configurator.py:194 ../tcos-configurator.py:199
+#: ../tcos-configurator.py:222 ../tcos-configurator.py:227
 msgid "TCOS"
 msgstr "TCOS"
 
-#: ../tcos-configurator.py:195
+#: ../tcos-configurator.py:223
 msgid "Backharddi"
 msgstr "Backharddi"
 
-#: ../tcos-configurator.py:330
+#: ../tcos-configurator.py:378
 msgid ""
 "WARNING:\n"
 "<b>Network interface don't have IP</b>"
-msgstr "AVISO:\n"
+msgstr ""
+"AVISO:\n"
 "<b>Essa interface de rede não possui IP</b>"
 
-#: ../tcos-configurator.py:384
+#: ../tcos-configurator.py:439
 msgid ""
 "<b>Reboot required (or restart gdm daemon) to enable new GDM settings</b>"
-msgstr "<b>Reinicie o servidor (ou reinicie o daemon gdm) para habilitar as novas configurações do GDM.</b>"
+msgstr ""
+"<b>Reinicie o servidor (ou reinicie o daemon gdm) para habilitar as novas "
+"configurações do GDM.</b>"
 
-#: ../tcos-configurator.py:413
+#: ../tcos-configurator.py:472
 #, python-format
 msgid "Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d"
 msgstr "Criando de %(prefix)s%(init)02d a %(prefix)s%(end)02d"
 
-#: ../tcos-configurator.py:446
+#: ../tcos-configurator.py:505
 #, python-format
 msgid "Creating user: '%s'"
 msgstr "Criando os usuários: '%s'"
 
-#: ../tcos-configurator.py:454
+#: ../tcos-configurator.py:513
 #, python-format
 msgid "User already exists: '%s'"
 msgstr "Os seguintes usuários já existem: '%s'"
 
-#: ../tcos-configurator.py:459 ../tcos-configurator.py:783
-#: ../tcos-configurator.py:805
+#: ../tcos-configurator.py:519 ../tcos-configurator.py:841
+#: ../tcos-configurator.py:864 ../tcos-configurator.py:1016
+#: ../tcos-configurator.py:1038
 msgid "<b>Done</b>"
 msgstr "<b>Feito</b>"
 
-#: ../tcos-configurator.py:643
-msgid "Configuring DHCP service..."
+#: ../tcos-configurator.py:699
+#, fuzzy
+msgid "Configuring DNSMASQ service..."
 msgstr "Configurando o serviço DHCP..."
 
-#: ../tcos-configurator.py:728
+#: ../tcos-configurator.py:798
+#, fuzzy
 msgid ""
-"<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
+"<b>Error writing /etc/dnsmasq.conf.</b>\n"
 "Are you root?"
-msgstr "<b>Erro ao alterar o arquivo /etc/dhcp3/dhcpd.conf.</b>\n"
+msgstr ""
+"<b>Erro ao alterar o arquivo /etc/dhcp3/dhcpd.conf.</b>\n"
 "Você é root?"
 
-#: ../tcos-configurator.py:773
+#: ../tcos-configurator.py:831 ../tcos-configurator.py:1006
 msgid "Configured static network"
 msgstr "A rede estática foi configurada"
 
-#: ../tcos-configurator.py:788
+#: ../tcos-configurator.py:846 ../tcos-configurator.py:1021
 msgid "ERROR:<b>Error configuring static network.</b>"
 msgstr "ERRO:<b>Erro ao configurar a rede estática.</b>"
 
-#: ../tcos-configurator.py:794
+#: ../tcos-configurator.py:852
+#, fuzzy
+msgid "Restarting DNSMASQ service..."
+msgstr "Reiniciando o serviço DHCP..."
+
+#: ../tcos-configurator.py:866
+#, fuzzy
+msgid "<b>Error restarting DNSMASQ server.</b>"
+msgstr "<b>Erro ao reiniciar o serviço DHCP.</b>"
+
+#: ../tcos-configurator.py:874
+msgid "Configuring DHCP service..."
+msgstr "Configurando o serviço DHCP..."
+
+#: ../tcos-configurator.py:960
+msgid ""
+"<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
+"Are you root?"
+msgstr ""
+"<b>Erro ao alterar o arquivo /etc/dhcp3/dhcpd.conf.</b>\n"
+"Você é root?"
+
+#: ../tcos-configurator.py:1027
 msgid "Restarting DHCP service..."
 msgstr "Reiniciando o serviço DHCP..."
 
-#: ../tcos-configurator.py:807
+#: ../tcos-configurator.py:1040
 msgid "<b>Error restarting DHCP server.</b>"
 msgstr "<b>Erro ao reiniciar o serviço DHCP.</b>"
-

@@ -2,12 +2,11 @@ Source: tcos-configurator
 Section: gnome
 Priority: optional
 Maintainer: Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
-Build-Depends: debhelper (>= 4.0.0), cdbs, python, python-support
-Standards-Version: 3.7.3
-XS-Python-Version: >= 2.4
+Build-Depends: debhelper (>= 7.0.0), cdbs, python, python-support
+Standards-Version: 3.8.0
 Vcs-Git: http://tcosproject.org/git/tcos-configurator.git
 Vcs-Browser: http://tcosproject.org/cgit/cgit.cgi/tcos-configurator.git/
-
+Homepage: http://www.tcosproject.org
 
 Package: tcos-configurator
 Architecture: all

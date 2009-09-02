@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-04 11:22+0200\n"
+"POT-Creation-Date: 2009-09-02 18:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,71 +185,90 @@ msgid ""
 "192.168.0.115 user15"
 msgstr ""
 
-#: ../tcos-configurator.py:193
+#: ../tcos-configurator.py:221
 msgid "TCOS and Backharddi"
 msgstr ""
 
-#: ../tcos-configurator.py:194 ../tcos-configurator.py:199
+#: ../tcos-configurator.py:222 ../tcos-configurator.py:227
 msgid "TCOS"
 msgstr ""
 
-#: ../tcos-configurator.py:195
+#: ../tcos-configurator.py:223
 msgid "Backharddi"
 msgstr ""
 
-#: ../tcos-configurator.py:330
+#: ../tcos-configurator.py:378
 msgid ""
 "WARNING:\n"
 "<b>Network interface don't have IP</b>"
 msgstr ""
 
-#: ../tcos-configurator.py:384
+#: ../tcos-configurator.py:439
 msgid ""
 "<b>Reboot required (or restart gdm daemon) to enable new GDM settings</b>"
 msgstr ""
 
-#: ../tcos-configurator.py:413
+#: ../tcos-configurator.py:472
 #, python-format
 msgid "Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d"
 msgstr ""
 
-#: ../tcos-configurator.py:446
+#: ../tcos-configurator.py:505
 #, python-format
 msgid "Creating user: '%s'"
 msgstr ""
 
-#: ../tcos-configurator.py:454
+#: ../tcos-configurator.py:513
 #, python-format
 msgid "User already exists: '%s'"
 msgstr ""
 
-#: ../tcos-configurator.py:459 ../tcos-configurator.py:783
-#: ../tcos-configurator.py:805
+#: ../tcos-configurator.py:519 ../tcos-configurator.py:841
+#: ../tcos-configurator.py:864 ../tcos-configurator.py:1016
+#: ../tcos-configurator.py:1038
 msgid "<b>Done</b>"
 msgstr ""
 
-#: ../tcos-configurator.py:643
+#: ../tcos-configurator.py:699
+msgid "Configuring DNSMASQ service..."
+msgstr ""
+
+#: ../tcos-configurator.py:798
+msgid ""
+"<b>Error writing /etc/dnsmasq.conf.</b>\n"
+"Are you root?"
+msgstr ""
+
+#: ../tcos-configurator.py:831 ../tcos-configurator.py:1006
+msgid "Configured static network"
+msgstr ""
+
+#: ../tcos-configurator.py:846 ../tcos-configurator.py:1021
+msgid "ERROR:<b>Error configuring static network.</b>"
+msgstr ""
+
+#: ../tcos-configurator.py:852
+msgid "Restarting DNSMASQ service..."
+msgstr ""
+
+#: ../tcos-configurator.py:866
+msgid "<b>Error restarting DNSMASQ server.</b>"
+msgstr ""
+
+#: ../tcos-configurator.py:874
 msgid "Configuring DHCP service..."
 msgstr ""
 
-#: ../tcos-configurator.py:728
+#: ../tcos-configurator.py:960
 msgid ""
 "<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
 "Are you root?"
 msgstr ""
 
-#: ../tcos-configurator.py:773
-msgid "Configured static network"
-msgstr ""
-
-#: ../tcos-configurator.py:788
-msgid "ERROR:<b>Error configuring static network.</b>"
-msgstr ""
-
-#: ../tcos-configurator.py:794
+#: ../tcos-configurator.py:1027
 msgid "Restarting DHCP service..."
 msgstr ""
 
-#: ../tcos-configurator.py:807
+#: ../tcos-configurator.py:1040
 msgid "<b>Error restarting DHCP server.</b>"
 msgstr ""

@@ -1,3 +1,9 @@
+tcos-configurator (1.13+1) UNRELEASED; urgency=low
+
+  * Remove obsolete patch targets
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Wed, 02 Sep 2009 20:38:18 +0200
+
 tcos-configurator (1.13) unstable; urgency=low
 
   * Add support to configure dnsmasq daemon instead of dhcp3-server

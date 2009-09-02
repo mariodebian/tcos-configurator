@@ -20,23 +20,6 @@ patch_version:
 	# PATCHING VERSION
 	sed -i 's/__VERSION__/$(VERSION)/g' tcos-configurator
 
-patch_dapper: patch_version
-	# PATCHING TcosMonitor in Ubuntu DAPPER
-	sed -i '/^Build/s/5.0.37.2/5.0.7ubuntu13/g' debian/control
-
-	sed -i '/\/usr\/bin\/env/s/python/python2.4/g' tcos-configurator
-
-patch_edgy: patch_version
-	sed -i '/\/usr\/bin\/env/s/python/python2.4/g' tcos-configurator
-
-patch_feisty: patch_version
-
-patch_gutsy: patch_version
-
-patch_max: patch_version
-
-patch_etch: patch_version
-	sed -i '/\/usr\/bin\/env/s/python/python2.4/g' tcos-configurator
 
 patch_lenny: patch_version
 
@@ -44,7 +27,12 @@ patch_unstable: patch_version
 
 patch_testing: patch_version
 
+
+
 patch_hardy: patch_version
+	echo 6 > debian/compat
+	sed -i 's/7\.0\.0/6\.0\.0/g' debian/control
+	sed -i 's/3\.8\.0/3\.7\.2/g' debian/control
 
 patch_max: patch_version
 	sed -i -e 's/Configurar servidor TCOS/Configurar servidor MAX/g' po/es.po

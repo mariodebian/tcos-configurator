@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 # -*- coding: UTF-8 -*-
 ##########################################################################
 # TcosConfigurator writen by MarioDebian <mariodebian@gmail.com>
@@ -470,8 +470,8 @@ class TcosStandalone:
         gtk.gdk.threads_leave()
         
         for i in range(self.begin_usernumber, self.begin_usernumber+number):
-            # range starts in 0
-            i="%02d"%(i+1)
+            # range starts in 1
+            i="%02d"%(i)
             username="%s%s"%(user_prefix, i)
             if not self.userExists(username):
                 print_debug("Creating username %s"%username)
@@ -853,8 +853,6 @@ class TcosStandalone:
         
         output=[]
         stdout = self.p.stdout
-        if lines == 1:
-            return stdout
         for line in stdout.readlines():
             if line != '\n':
                 line=line.replace('\n', '')

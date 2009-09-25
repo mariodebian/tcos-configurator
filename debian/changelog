@@ -1,8 +1,9 @@
-tcos-configurator (1.13+1) UNRELEASED; urgency=low
+tcos-configurator (1.14) unstable; urgency=low
 
   * Remove obsolete patch targets
+  * Add support for detcet Backharddi-NG
 
- -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Wed, 02 Sep 2009 20:38:18 +0200
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Fri, 25 Sep 2009 23:52:06 +0200
 
 tcos-configurator (1.13) unstable; urgency=low
 

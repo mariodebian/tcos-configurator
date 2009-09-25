@@ -31,6 +31,7 @@ import glob
 import socket
 import fcntl
 import struct
+import netifaces
 #####################
 
 import pygtk
@@ -216,7 +217,7 @@ class TcosStandalone:
         bindtextdomain( PACKAGE, LOCALE_DIR )
         textdomain( PACKAGE )
         
-        if os.path.isdir('/usr/share/backharddi'):
+        if os.path.isdir('/usr/share/backharddi') or os.path.isdir('/usr/share/backharddi-ng'):
             self.BOOT_MODES=[
                     [_("TCOS and Backharddi"), "/pxelinux.0" ],
                     [_("TCOS"),           "/tcos/pxelinux.0" ],

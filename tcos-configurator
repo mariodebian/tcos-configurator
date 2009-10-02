@@ -713,7 +713,10 @@ class TcosStandalone:
         server_iface=self.read_select_value(self.w['combo_interfaces'])
         if self.configured_interfaces.has_key(server_iface) and len(self.configured_interfaces[server_iface]) > 1:
             server_ip=self.configured_interfaces[server_iface]['address']
-            gateway=self.configured_interfaces[server_iface]['gateway']
+            try:
+                gateway=self.configured_interfaces[server_iface]['gateway']
+            except:
+                gateway=server_ip
             netmask=self.configured_interfaces[server_iface]['netmask']
             if self.configured_interfaces[server_iface].has_key('network'):
                 network=self.configured_interfaces[server_iface]['network']
@@ -888,7 +891,10 @@ class TcosStandalone:
         server_iface=self.read_select_value(self.w['combo_interfaces'])
         if self.configured_interfaces.has_key(server_iface) and len(self.configured_interfaces[server_iface]) > 1:
             server_ip=self.configured_interfaces[server_iface]['address']
-            gateway=self.configured_interfaces[server_iface]['gateway']
+            try:
+                gateway=self.configured_interfaces[server_iface]['gateway']
+            except:
+                gateway=server_ip
             netmask=self.configured_interfaces[server_iface]['netmask']
             if self.configured_interfaces[server_iface].has_key('network'):
                 network=self.configured_interfaces[server_iface]['network']

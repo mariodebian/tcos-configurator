@@ -1,3 +1,9 @@
+tcos-configurator (1.15) unstable; urgency=low
+
+  * fix exception when gateway is empty
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Sun, 04 Oct 2009 16:11:25 +0200
+
 tcos-configurator (1.14) unstable; urgency=low
 
   * Remove obsolete patch targets

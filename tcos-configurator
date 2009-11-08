@@ -198,6 +198,20 @@ if os.path.isfile(GDM_CONF_FILE + "-custom"):
 if os.path.isfile("/etc/gdm/gdm-cdd.conf"):
     GDM_CONF_FILE="/etc/gdm/gdm-cdd.conf"
 
+# new GDM in Ubuntu Karmic
+if os.path.isfile("/etc/gdm/custom.conf"):
+    GDM_CONF_FILE="/etc/gdm/custom.conf"
+
+
+KDM_CONFIG={
+"Xdmcp":[
+         {"Enable":"true"}
+        ]
+}
+KDM_CONF_FILE="/etc/kde4/kdm/kdmrc"
+KDM_ACCESS_FILE="/etc/kde4/kdm/Xaccess"
+KDM_ACCESS_LINE="#any host can get a login window"
+
 HIDDEN_INTERFACES=['lo', 'pan0', 'sit0']
 
 ################################################################################
@@ -424,40 +438,62 @@ class TcosStandalone:
         self.w['btn_commit_login'].set_sensitive(False)
 
     def enable_remotelogin(self):
-        self.SetVar("xdmcp", "Enable", "true")
-        self.SetVar("xdmcp", "MaxSessions", "30")
-        if os.path.exists("/usr/lib/gdm/gdmgreeter"):
-            self.SetVar("daemon", "RemoteGreeter", "/usr/lib/gdm/gdmgreeter")
-        self.SetVar("daemon", "TimedLogin", "/usr/sbin/tcos-gdm-autologin|")
-        if self.w['ck_autologin'].get_active():
-            self.SetVar("daemon", "TimedLoginEnable", "true")
-            self.SetVar("security", "AllowRemoteAutoLogin", "true")
-        else:
-            self.SetVar("daemon", "TimedLoginEnable", "false")
-            self.SetVar("security", "AllowRemoteAutoLogin", "false")
-        self.SetVar("daemon", "TimedLoginDelay", str( int(self.w['scale_autologin'].get_value()) ) )
+        if os.path.isfile(GDM_CONF_FILE):
+            self.SetVar("xdmcp", "Enable", "true")
+            self.SetVar("xdmcp", "MaxSessions", "30")
+            if os.path.exists("/usr/lib/gdm/gdmgreeter"):
+                self.SetVar("daemon", "RemoteGreeter", "/usr/lib/gdm/gdmgreeter")
+            self.SetVar("daemon", "TimedLogin", "/usr/sbin/tcos-gdm-autologin|")
+            if self.w['ck_autologin'].get_active():
+                self.SetVar("daemon", "TimedLoginEnable", "true")
+                self.SetVar("security", "AllowRemoteAutoLogin", "true")
+            else:
+                self.SetVar("daemon", "TimedLoginEnable", "false")
+                self.SetVar("security", "AllowRemoteAutoLogin", "false")
+            self.SetVar("daemon", "TimedLoginDelay", str( int(self.w['scale_autologin'].get_value()) ) )
+            
+        if os.path.isfile(KDM_CONF_FILE):
+            self.SetVar("Xdmcp", "Enable", "true", CONF=KDM_CONF_FILE)
+            # configure Xaccess
+            f=open(KDM_ACCESS_FILE, 'r')
+            data=f.readlines()
+            f.close()
+            for i in range(len(data)):
+                line=data[i]
+                if KDM_ACCESS_LINE in line:
+                    data[i]=line.replace('#*', '*')
+            f=open(KDM_ACCESS_FILE, 'w')
+            for line in data:
+                print_debug("enable_remotelogin() KDM_ACCESS_FILE: %s"%line.replace('\n','') )
+                f.write(line)
+            f.close()
+        
         # show message to reboot required
-        self.w['lbl_login'].set_markup( _("<b>Reboot required (or restart gdm daemon) to enable new GDM settings</b>") )
+        self.w['lbl_login'].set_markup( _("<b>Reboot required (or restart gdm/kdm daemon) to enable new GDM/KDM settings</b>") )
         self.w['lbl_login'].show()
         return
 
     def disable_remotelogin(self):
+        if os.path.isfile(KDM_CONF_FILE):
+            self.SetVar("Xdmcp", "Enable", "false", CONF=KDM_CONF_FILE)
         self.SetVar("xdmcp","Enable","false")
 
-    def SetVar(self, section, key, value, do=True):
+    def SetVar(self, section, key, value, do=True, CONF=GDM_CONF_FILE):
         if not do:
             print_debug("NOACTION: SetVar() gdm.conf=%s section=%s key=%s value=%s" 
-                        %(GDM_CONF_FILE, section,key,value) )
+                        %(CONF, section,key,value) )
             return
             
-        config=MyConfigObj( os.path.realpath(GDM_CONF_FILE) )
-        print_debug("setting gdm=%s section=[%s] key=%s value=%s" %(GDM_CONF_FILE, section, key, value) )
+        config=MyConfigObj( os.path.realpath(CONF) )
+        print_debug("setting conf=%s section=[%s] key=%s value=%s" %(CONF, section, key, value) )
+        if not config.has_key(section):
+            config[section]={}
         config[section][key] = value
         try:
             config.write()
             return True
         except:
-            print_debug("Error, can't write in %s" %(GDM_CONF_FILE))
+            print_debug("Error, can't write in %s" %(CONF))
             return False
 
 ############## users ##########################################################

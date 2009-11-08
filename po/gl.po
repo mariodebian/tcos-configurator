@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tcos-configurator 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 18:47+0200\n"
+"POT-Creation-Date: 2009-11-08 14:26+0100\n"
 "PO-Revision-Date: 2008-11-26 18:38+0100\n"
 "Last-Translator: Enrique Estévez Fernández <keko@ousli.org>\n"
 "Language-Team: Galician <gl@li.po>\n"
@@ -221,19 +221,19 @@ msgstr ""
 "...\n"
 "192.168.0.115 usuario15"
 
-#: ../tcos-configurator.py:221
+#: ../tcos-configurator.py:236
 msgid "TCOS and Backharddi"
 msgstr "TCOS e Backharddi"
 
-#: ../tcos-configurator.py:222 ../tcos-configurator.py:227
+#: ../tcos-configurator.py:237 ../tcos-configurator.py:242
 msgid "TCOS"
 msgstr "TCOS"
 
-#: ../tcos-configurator.py:223
+#: ../tcos-configurator.py:238
 msgid "Backharddi"
 msgstr "Backharddi"
 
-#: ../tcos-configurator.py:378
+#: ../tcos-configurator.py:393
 msgid ""
 "WARNING:\n"
 "<b>Network interface don't have IP</b>"
@@ -241,40 +241,42 @@ msgstr ""
 "AVISO:\n"
 "<b>A interface de rede no ten IP</b>"
 
-#: ../tcos-configurator.py:439
+#: ../tcos-configurator.py:472
+#, fuzzy
 msgid ""
-"<b>Reboot required (or restart gdm daemon) to enable new GDM settings</b>"
+"<b>Reboot required (or restart gdm/kdm daemon) to enable new GDM/KDM "
+"settings</b>"
 msgstr ""
 "<b>Necesitase reiniciar o equipo (ou o proceso gdm) para activar a nova "
 "configuración de GDM</b>"
 
-#: ../tcos-configurator.py:472
+#: ../tcos-configurator.py:509
 #, python-format
 msgid "Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d"
 msgstr "Creando dende %(prefix)s%(init)02d ata %(prefix)s%(end)02d"
 
-#: ../tcos-configurator.py:505
+#: ../tcos-configurator.py:542
 #, python-format
 msgid "Creating user: '%s'"
 msgstr "Creando usuario: '%s'"
 
-#: ../tcos-configurator.py:513
+#: ../tcos-configurator.py:550
 #, python-format
 msgid "User already exists: '%s'"
 msgstr "O usuario xa existe: '%s'"
 
-#: ../tcos-configurator.py:519 ../tcos-configurator.py:841
-#: ../tcos-configurator.py:864 ../tcos-configurator.py:1016
-#: ../tcos-configurator.py:1038
+#: ../tcos-configurator.py:556 ../tcos-configurator.py:881
+#: ../tcos-configurator.py:904 ../tcos-configurator.py:1059
+#: ../tcos-configurator.py:1081
 msgid "<b>Done</b>"
 msgstr "<b>Feito</b>"
 
-#: ../tcos-configurator.py:699
+#: ../tcos-configurator.py:736
 #, fuzzy
 msgid "Configuring DNSMASQ service..."
 msgstr "Configurando servizo DHCP..."
 
-#: ../tcos-configurator.py:798
+#: ../tcos-configurator.py:838
 #, fuzzy
 msgid ""
 "<b>Error writing /etc/dnsmasq.conf.</b>\n"
@@ -283,29 +285,29 @@ msgstr ""
 "<b>Erro escribindo /etc/dhcp3/dhcpd.conf.</b>\n"
 "¿Suficientes permisos?"
 
-#: ../tcos-configurator.py:831 ../tcos-configurator.py:1006
+#: ../tcos-configurator.py:871 ../tcos-configurator.py:1049
 msgid "Configured static network"
 msgstr "Configurado modo de rede estático"
 
-#: ../tcos-configurator.py:846 ../tcos-configurator.py:1021
+#: ../tcos-configurator.py:886 ../tcos-configurator.py:1064
 msgid "ERROR:<b>Error configuring static network.</b>"
 msgstr "ERRO:<b>Erro configurando a rede estática.</b>"
 
-#: ../tcos-configurator.py:852
+#: ../tcos-configurator.py:892
 #, fuzzy
 msgid "Restarting DNSMASQ service..."
 msgstr "Reiniciando servizo DHCP..."
 
-#: ../tcos-configurator.py:866
+#: ../tcos-configurator.py:906
 #, fuzzy
 msgid "<b>Error restarting DNSMASQ server.</b>"
 msgstr "<b>Erro reiniciando servidor DHCP</b>"
 
-#: ../tcos-configurator.py:874
+#: ../tcos-configurator.py:914
 msgid "Configuring DHCP service..."
 msgstr "Configurando servizo DHCP..."
 
-#: ../tcos-configurator.py:960
+#: ../tcos-configurator.py:1003
 msgid ""
 "<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
 "Are you root?"
@@ -313,10 +315,10 @@ msgstr ""
 "<b>Erro escribindo /etc/dhcp3/dhcpd.conf.</b>\n"
 "¿Suficientes permisos?"
 
-#: ../tcos-configurator.py:1027
+#: ../tcos-configurator.py:1070
 msgid "Restarting DHCP service..."
 msgstr "Reiniciando servizo DHCP..."
 
-#: ../tcos-configurator.py:1040
+#: ../tcos-configurator.py:1083
 msgid "<b>Error restarting DHCP server.</b>"
 msgstr "<b>Erro reiniciando servidor DHCP</b>"

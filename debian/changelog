@@ -1,3 +1,9 @@
+tcos-configurator (1.16) unstable; urgency=low
+
+  * support configuration of KDM, update Spanish translation
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Sun, 08 Nov 2009 14:49:55 +0100
+
 tcos-configurator (1.15) unstable; urgency=low
 
   * fix exception when gateway is empty

@@ -177,7 +177,8 @@ DNSMASQ_CONF=[
 
 GDM_CONFIG={
 "xdmcp":[
-    {"Enable":"true"}
+    {"Enable":"true"},
+    {"MaxSessions":"30"},
     ],
 "security":[
     {"AllowRemoteAutoLogin":"true"},

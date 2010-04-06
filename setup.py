@@ -9,6 +9,13 @@ from distutils.command.build import build
 
 data_files = []
 
+def get_debian_version():
+    f=open('debian/changelog', 'r')
+    line=f.readline()
+    f.close()
+    version=line.split()[1].replace('(','').replace(')','')
+    return version
+
 class build_locales(build):
     os.system("cd po && make gmo")
 
@@ -32,7 +39,7 @@ data_files.append(('share/applications', ['tcos-configurator.desktop'] ))
 
 setup(name='TcosConfigurator',
       description = 'Configure TCOS server services',
-      version='1.1',
+      version=get_debian_version(),
       author = 'Mario Izquierdo',
       author_email = 'mariodebian@gmail.com',
       url = 'http://www.tcosproject.org',

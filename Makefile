@@ -40,5 +40,11 @@ patch_max: patch_version
 
 patch_intrepid: patch_version
 
+patch_jaunty: patch_version
+
+patch_karmic: patch_version
+
+patch_lucid: patch_version
+
 
 .PHONY:

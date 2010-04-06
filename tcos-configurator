@@ -174,11 +174,26 @@ DNSMASQ_CONF=[
 'log-dhcp'],
 ]
 
-
+# this settings could be more precise but work for
+# 15-20 thin clients without problems
+#Enable=true
+#MaxSessions=40
+#MaxPending=60
+#MaxPendingIndirect=30
+#MaxWait=75
+#MaxWaitIndirect=80
+#PingIntervalSeconds=35
+#DisplaysPerHost=4
 GDM_CONFIG={
 "xdmcp":[
     {"Enable":"true"},
-    {"MaxSessions":"30"},
+    {"MaxSessions":"40"},
+    {"MaxPending":"60"},
+    {"MaxPendingIndirect":"30"},
+    {"MaxWait":"75"},
+    {"MaxWaitIndirect":"80"},
+    {"PingIntervalSeconds":"35"},
+    {"DisplaysPerHost":"4"},
     ],
 "security":[
     {"AllowRemoteAutoLogin":"true"},

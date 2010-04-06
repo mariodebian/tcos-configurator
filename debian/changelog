@@ -1,3 +1,10 @@
+tcos-configurator (1.17) unstable; urgency=low
+
+  * Use MaxSessions=30 as default for GDM
+  * Create empty /etc/gdm/custom.conf if gdm.schemas is found
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Tue, 06 Apr 2010 17:41:20 +0200
+
 tcos-configurator (1.16) unstable; urgency=low
 
   * support configuration of KDM, update Spanish translation

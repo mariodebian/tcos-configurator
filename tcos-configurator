@@ -199,6 +199,13 @@ if os.path.isfile(GDM_CONF_FILE + "-custom"):
 if os.path.isfile("/etc/gdm/gdm-cdd.conf"):
     GDM_CONF_FILE="/etc/gdm/gdm-cdd.conf"
 
+# in new Ubuntu create empty file and use it
+if os.path.isfile("/etc/gdm/gdm.schemas") and not os.path.isfile("/etc/gdm/custom.conf"):
+    # create empty file
+    f=open("/etc/gdm/custom.conf", 'w')
+    f.write('\n')
+    f.close()
+
 # new GDM in Ubuntu Karmic
 if os.path.isfile("/etc/gdm/custom.conf"):
     GDM_CONF_FILE="/etc/gdm/custom.conf"

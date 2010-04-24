@@ -163,7 +163,11 @@ DNSMASQ_CONF=[
     'dhcp-range=__STARTIP__,__ENDIP__,12h',
     'dhcp-option=option:router,__ROUTERS__',
     'dhcp-option=option:tftp-server,__SERVERIP__',
-    'dhcp-boot=__BOOTMODE__',
+    'dhcp-boot=__BOOTMODE__,__SERVERIP__,__SERVERIP__',
+    '# option 49 x-display-manager',
+    'dhcp-option-force=49,__SERVERIP__',
+    '# option 48 font-servers',
+    'dhcp-option-force=48,__SERVERIP__',
 ],
 
 ['enable-tftp',
@@ -224,6 +228,17 @@ if os.path.isfile("/etc/gdm/gdm.schemas") and not os.path.isfile("/etc/gdm/custo
 # new GDM in Ubuntu Karmic
 if os.path.isfile("/etc/gdm/custom.conf"):
     GDM_CONF_FILE="/etc/gdm/custom.conf"
+
+# in Debian unstable GDM is installed in /etc/gdm3 create empty file and use it
+if os.path.isfile("/etc/gdm3/gdm.schemas") and not os.path.isfile("/etc/gdm3/daemon.conf"):
+    # create empty file
+    f=open("/etc/gdm3/daemon.conf", 'w')
+    f.write('\n')
+    f.close()
+
+# new GDM in Debian unstable
+if os.path.isfile("/etc/gdm3/daemon.conf"):
+    GDM_CONF_FILE="/etc/gdm3/daemon.conf"
 
 
 KDM_CONFIG={

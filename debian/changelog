@@ -1,3 +1,14 @@
+tcos-configurator (1.18) unstable; urgency=low
+
+  * tcos-configurator: use bigger limits to allow more clients in GDM
+  * Makefile: add jaunty karmic and lucid patch
+  * setup.py: read version from debian/changelog to use in setup class
+  * put option 49 xserver and 48 font-servers, and create
+    /etc/gdm3/daemon.log
+  * fix GDM_CONFIG var and add all xdmcp settings when enabling
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Thu, 17 Jun 2010 22:17:29 +0200
+
 tcos-configurator (1.17) unstable; urgency=low
 
   * Use MaxSessions=30 as default for GDM

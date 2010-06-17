@@ -189,25 +189,23 @@ DNSMASQ_CONF=[
 #PingIntervalSeconds=35
 #DisplaysPerHost=4
 GDM_CONFIG={
-"xdmcp":[
-    {"Enable":"true"},
-    {"MaxSessions":"40"},
-    {"MaxPending":"60"},
-    {"MaxPendingIndirect":"30"},
-    {"MaxWait":"75"},
-    {"MaxWaitIndirect":"80"},
-    {"PingIntervalSeconds":"35"},
-    {"DisplaysPerHost":"4"},
-    ],
-"security":[
-    {"AllowRemoteAutoLogin":"true"},
-    {"DisallowTCP":"false"}
-    ],
-"daemon":[
-    {"TimedLoginEnable":"__AUTOLOGIN__"},
-    {"TimedLogin":"/usr/sbin/tcos-gdm-autologin|"},
-    {"TimedLoginDelay":"__TIMEOUT__"}
-    ],
+"xdmcp":
+    {"Enable":"true",
+    "MaxSessions":"30",
+    "MaxSessions":"40",
+    "MaxPending":"60",
+    "MaxPendingIndirect":"30",
+    "MaxWait":"75",
+    "MaxWaitIndirect":"80",
+    "PingIntervalSeconds":"35",
+    "DisplaysPerHost":"4"},
+"security":
+    {"AllowRemoteAutoLogin":"true",
+    "DisallowTCP":"false"},
+"daemon":
+    {"TimedLoginEnable":"__AUTOLOGIN__",
+    "TimedLogin":"/usr/sbin/tcos-gdm-autologin|",
+    "TimedLoginDelay":"__TIMEOUT__"},
 }
 
 GDM_CONF_FILE="/etc/gdm/gdm.conf"
@@ -478,10 +476,14 @@ class TcosStandalone:
     def enable_remotelogin(self):
         if os.path.isfile(GDM_CONF_FILE):
             self.SetVar("xdmcp", "Enable", "true")
-            self.SetVar("xdmcp", "MaxSessions", "30")
+            
+            for gdmvar in GDM_CONFIG['xdmcp']:
+                self.SetVar('xdmcp', gdmvar, GDM_CONFIG['xdmcp'][gdmvar])
+                
             if os.path.exists("/usr/lib/gdm/gdmgreeter"):
                 self.SetVar("daemon", "RemoteGreeter", "/usr/lib/gdm/gdmgreeter")
             self.SetVar("daemon", "TimedLogin", "/usr/sbin/tcos-gdm-autologin|")
+            
             if self.w['ck_autologin'].get_active():
                 self.SetVar("daemon", "TimedLoginEnable", "true")
                 self.SetVar("security", "AllowRemoteAutoLogin", "true")

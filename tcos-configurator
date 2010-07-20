@@ -228,7 +228,7 @@ if os.path.isfile("/etc/gdm/custom.conf"):
     GDM_CONF_FILE="/etc/gdm/custom.conf"
 
 # in Debian unstable GDM is installed in /etc/gdm3 create empty file and use it
-if os.path.isfile("/etc/gdm3/gdm.schemas") and not os.path.isfile("/etc/gdm3/daemon.conf"):
+if os.path.isdir("/etc/gdm3") and not os.path.isfile("/etc/gdm3/daemon.conf"):
     # create empty file
     f=open("/etc/gdm3/daemon.conf", 'w')
     f.write('\n')

@@ -1,3 +1,11 @@
+tcos-configurator (1.19) unstable; urgency=low
+
+  * check for /etc/gdm3 dir, schemas is moved to /usr/share/gdm
+  * debian/control: Update GIT URL
+  * tcos-configurator: Use /var/lib/max-netboot as TFTPBOOT if exists
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Sat, 18 Dec 2010 15:36:21 +0100
+
 tcos-configurator (1.18) unstable; urgency=low
 
   * tcos-configurator: use bigger limits to allow more clients in GDM

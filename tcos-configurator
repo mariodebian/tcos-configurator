@@ -171,6 +171,8 @@ DNSMASQ_CONF=[
     'dhcp-option-force=49,__SERVERIP__',
     '# option 48 font-servers',
     'dhcp-option-force=48,__SERVERIP__',
+    '# option 16 swap-server',
+    'dhcp-option-force=16,__SERVERIP__',
 ],
 
 ['enable-tftp',
@@ -178,7 +180,8 @@ DNSMASQ_CONF=[
 ],
 
 ['dhcp-authoritative',
-'log-dhcp'],
+'#log-dhcp',
+'#log-queries'],
 ]
 
 # this settings could be more precise but work for

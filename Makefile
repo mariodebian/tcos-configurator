@@ -23,6 +23,8 @@ patch_version:
 
 patch_lenny: patch_version
 
+patch_squeeze: patch_version
+
 patch_unstable: patch_version
 
 patch_testing: patch_version

@@ -3,11 +3,11 @@ Upstream-Name: tcos-configurator
 Source: http://tcosproject.org/cgit/tcos-configurator.git
 
 Files: *
-Copyright: 2008,2011 Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
+Copyright: 2008-2011 Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
 License: GPL-2.0+
 
 Files: debian/*
-Copyright: 2008,2011 Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
+Copyright: 2008-2011 Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
 License: GPL-2.0+
 
 License: GPL-2.0+

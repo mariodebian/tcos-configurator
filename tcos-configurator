@@ -1,27 +1,23 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-##########################################################################
-# TcosConfigurator writen by MarioDebian <mariodebian@gmail.com>
-#
 #    TcosConfigurator version __VERSION__
 #
-# Copyright (c) 2008 Mario Izquierdo <mariodebian@gmail.com>
+# Copyright (c) 2006-2011 Mario Izquierdo <mariodebian@gmail.com>
 #
-# This program is free software; you can redistribute it and/or modify
+# This package is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2, or (at your option)
-# any later version.
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
+#
+# This package is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-# 02111-1307, USA.
-###########################################################################
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 import sys
 import os
@@ -413,23 +409,34 @@ class TcosStandalone:
         self.w['txt_endip'].set_text(  ".".join(value.split('.')[0:3]) + ".131")
         self.w['lbl_dhcp'].set_text("")
 
+    def get_ip_from_iface(self, seliface):
+        print_debug("get_ip_from_iface(%s) self.configured_interfaces=%s"%(seliface, self.configured_interfaces))
+        if not self.configured_interfaces.has_key(seliface):
+            return None
+        if not self.configured_interfaces[seliface].has_key('address'):
+            return None
+        return self.configured_interfaces[seliface]['address']
+
     def combo_interface_change(self, widget):
         configured=False
         seliface=self.read_select_value(widget)
         for iface in self.interfaces:
-            print_debug("static iface=%s seliface=%s"%(iface, seliface))
-            print_debug("self.interfaces=%s"%(self.interfaces))
-            if iface[0] == seliface and iface[1] != None:
-                self.w['txt_startip'].set_text(".".join(iface[1].split('.')[0:3]) + ".101")
-                self.w['txt_endip'].set_text(  ".".join(iface[1].split('.')[0:3]) + ".131")
-                self.w['txt_serverip'].set_text(iface[1])
-                self.set_dhcp_modified()
+            if iface[0] != seliface:
+                #print_debug("combo_interface_change(%s) iface(%s) != seliface and iface != None"%(seliface, iface[0]))
+                continue
+            
+            iface_ip=self.get_ip_from_iface(iface[0])
+            print_debug("combo_interface_change(%s) static iface=%s seliface=%s iface_ip=%s"%(seliface, iface, seliface, iface_ip))
+            print_debug("combo_interface_change(%s) self.interfaces=%s"%(seliface, self.interfaces))
+            
+            print_debug("combo_interface_change() iface[1]=%s iface_ip=%s"%(iface[1], iface_ip))
+            
+            if iface_ip:
                 self.w['lbl_dhcp'].hide()
                 self.w['hbox_dynamic'].hide()
                 self.w['ck_static'].set_active(False)
-                print_debug("iface=%s HAVE IP"%iface)
-                configured=True
-            if iface[1] == None:
+                print_debug("combo_interface_change(%s) iface=%s HAVE IP"%(seliface, iface) )
+            else:
                 self.w['hbox_dynamic'].show()
                 self.w['ck_static'].set_active(True)
                 self.w['lbl_dhcp'].set_markup( _("WARNING:\n<b>Network interface don't have IP</b>") )
@@ -437,11 +444,13 @@ class TcosStandalone:
                 self.w['txt_serverip'].set_text('')
                 self.w['txt_startip'].set_text('')
                 self.w['txt_endip'].set_text('')
-                print_debug("iface=%s DON'T HAVE IP" %iface)
-        if configured:
-            self.w['lbl_dhcp'].hide()
-            self.w['hbox_dynamic'].hide()
-            self.w['ck_static'].set_active(False)
+                print_debug("combo_interface_change(%s) iface=%s DON'T HAVE IP" %(seliface, iface) )
+            
+            if iface[1]:
+                self.w['txt_startip'].set_text(".".join(iface[1].split('.')[0:3]) + ".101")
+                self.w['txt_endip'].set_text(  ".".join(iface[1].split('.')[0:3]) + ".131")
+                self.w['txt_serverip'].set_text(iface[1])
+                self.set_dhcp_modified()
 
     def set_dhcp_modified(self, *args):
         self.dhcp_modified=True
@@ -611,6 +620,7 @@ class TcosStandalone:
             return None
         ip=netifaces.ifaddresses(ifname)
         if ip.has_key(netifaces.AF_INET):
+            print_debug("get_ip_address(%s)=%s"%(ifname, ip[netifaces.AF_INET][0]))
             return ip[netifaces.AF_INET][0]['addr']
         return None
 
@@ -653,7 +663,7 @@ class TcosStandalone:
                 interfaces[curiface]['broadcast']=line.split()[1]
             if curiface and line.startswith('dns-nameservers'):
                 interfaces[curiface]['dns-nameservers']=line.split()[1:]
-        print_debug("%s"%interfaces)
+        print_debug("read_etc_network_interfaces() %s"%interfaces)
         return interfaces
                 
 

@@ -1,3 +1,15 @@
+tcos-configurator (1.20) unstable; urgency=low
+
+  * Add option 16 (swap-server) used by udhcpc
+  * Makefile: Add Debian Squeeze
+  * debian/copyright: Machine readable debian/copyright format
+  * update debian/copyright
+  * setu.py add license
+  * tcos-configurator: fix combo_interface_change() nm iface detection
+  * tcos-configurator: add --simulate option and don't write gateway if not needed
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Fri, 25 Feb 2011 22:40:56 +0100
+
 tcos-configurator (1.19) unstable; urgency=low
 
   * check for /etc/gdm3 dir, schemas is moved to /usr/share/gdm

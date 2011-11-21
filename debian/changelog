@@ -1,3 +1,16 @@
+tcos-configurator (1.21) unstable; urgency=low
+
+  * Convert glade to gtkbuilder
+  * tcos-configurator: Change glade to GtkBuilder and ask before overwriting files
+  * setup.py: Install ui instead of glade
+  * Update translations
+  * Delete debian/py* files
+  * Add man page
+  * Switch to 3.0 (native)
+  * Switch from CDBS to dh7
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Mon, 21 Nov 2011 20:31:45 +0100
+
 tcos-configurator (1.20) unstable; urgency=low
 
   * Add option 16 (swap-server) used by udhcpc

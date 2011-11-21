@@ -10,7 +10,7 @@ all:
 
 clean:
 	find -name "*~" | xargs rm -f
-	rm -f tcos-configurator.glade.bak tcos-configurator.gladep
+	rm -f ./dnsmasq.conf ./resolv.conf.real
 
 test:
 	@echo "TCOS_CONFIGURATOR VERSION="$(VERSION)
@@ -21,32 +21,8 @@ patch_version:
 	sed -i 's/__VERSION__/$(VERSION)/g' tcos-configurator
 
 
-patch_lenny: patch_version
-
-patch_squeeze: patch_version
-
-patch_unstable: patch_version
-
-patch_testing: patch_version
-
-
-
-patch_hardy: patch_version
-	echo 6 > debian/compat
-	sed -i 's/7\.0\.0/6\.0\.0/g' debian/control
-	sed -i 's/3\.8\.0/3\.7\.2/g' debian/control
-
 patch_max: patch_version
 	sed -i -e 's/Configurar servidor TCOS/Configurar servidor MAX/g' po/es.po
 	sed -i -e 's/Configurador del servidor TCOS/Configurador del servidor MAX/g' po/es.po
-
-patch_intrepid: patch_version
-
-patch_jaunty: patch_version
-
-patch_karmic: patch_version
-
-patch_lucid: patch_version
-
 
 .PHONY:

@@ -103,8 +103,9 @@ def print_debug(txt):
 def usage():
     print "tcos-configurator help:"
     print ""
-    print "   tcos-configurator -d [--debug]  (write debug data to stdout)"
-    print "   tcos-configurator -h [--help]   (this help)"
+    print "   tcos-configurator -d [--debug]     (write debug data to stdout)"
+    print "   tcos-configurator -s [--simulate]  (dry-run)"
+    print "   tcos-configurator -h [--help]      (this help)"
 
 
 try:
@@ -781,7 +782,7 @@ class TcosStandalone:
 ################################################################################
     def parse_dhcp(self, line, options):
         for option in options:
-            #print_debug("line %s replace %s with %s"%(line, option, options[option]))
+            print_debug("line %s replace %s with %s"%(line, option, options[option]))
             line=line.replace(option, options[option])
         print_debug(line)
         return line
@@ -855,7 +856,7 @@ class TcosStandalone:
                 server_ip=self.w['txt_serverip'].get_text()
             # gateway
             #gateway=self.exe_cmd("ip route| grep %s| awk '/^default/ {print $3}'"%server_iface)
-            gateway=self.exe_cmd("/sbin/route -n| awk '/^0.0.0.0(.*)%s/ {print $2}'" %server_iface)
+            gateway=self.exe_cmd("/sbin/route -n| awk '/^0.0.0.0(.*)%s/ {print $2}'| head -1" %server_iface)
             if gateway == [] or gateway == "":
                 print_debug("gateway not found, using server_ip")
                 gateway=server_ip

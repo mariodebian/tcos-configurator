@@ -48,12 +48,17 @@ def get_images(ipath):
         if os.path.isfile(afile):
             images.append(afile)
     return images
-        
+
+
 data_files.append(('share/tcos-configurator/images', get_images("images") ))
 
 data_files.append(('share/tcos-configurator', ['tcos-configurator.ui'] ))
 
 data_files.append(('share/applications', ['tcos-configurator.desktop'] ))
+
+data_files.append(('sbin', ['tcos-configurator'] ))
+data_files.append(('share/man/man1', ['tcos-configurator.1'] ))
+
 
 setup(name='TcosConfigurator',
       description = 'Configure TCOS server services',
@@ -64,7 +69,7 @@ setup(name='TcosConfigurator',
       license = 'GPLv2',
       platforms = ['linux'],
       keywords = ['thin client', 'teacher monitor', 'ltsp'],
-      scripts=['tcos-configurator'],
+      #scripts=['tcos-configurator'],
       cmdclass = {'build': build_locales},
       data_files=data_files
       )

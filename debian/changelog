@@ -6,7 +6,8 @@ tcos-configurator (1.20) unstable; urgency=low
   * update debian/copyright
   * setu.py add license
   * tcos-configurator: fix combo_interface_change() nm iface detection
-  * tcos-configurator: add --simulate option and don't write gateway if not needed
+  * tcos-configurator: add --simulate option and don't write gateway 
+    if not needed
 
  -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Fri, 25 Feb 2011 22:40:56 +0100
 

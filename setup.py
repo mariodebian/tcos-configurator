@@ -51,7 +51,7 @@ def get_images(ipath):
         
 data_files.append(('share/tcos-configurator/images', get_images("images") ))
 
-data_files.append(('share/tcos-configurator', ['tcos-configurator.glade'] ))
+data_files.append(('share/tcos-configurator', ['tcos-configurator.ui'] ))
 
 data_files.append(('share/applications', ['tcos-configurator.desktop'] ))
 

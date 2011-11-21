@@ -1,22 +1,21 @@
 # Translation template for tcos-configurator
 # Copyright (C) 2008 Mario Izquierdo
 # This file is distributed under the same license as the tcos-configurator package.
-# Mario Izquierdo <mariodebian@gmail.com>, 2008.
+# Mario Izquierdo <mariodebian@gmail.com>, 2008, 2009, 2011.
 #
-#
-# Mario Izquierdo (mariodebian) <mariodebian@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: tcos-configurator 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-08 14:26+0100\n"
-"PO-Revision-Date: 2009-11-08 14:26+0100\n"
-"Last-Translator: Mario Izquierdo (mariodebian) <mariodebian@gmail.com>\n"
-"Language-Team: Spanish <Spanish/Spain <es@li.org>>\n"
+"POT-Creation-Date: 2011-11-21 19:41+0100\n"
+"PO-Revision-Date: 2011-11-21 19:42+0100\n"
+"Last-Translator: Mario Izquierdo <mariodebian@gmail.com>\n"
+"Language-Team: Español; Castellano <>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../tcos-configurator.glade:9
 msgid "TCOS Server configurator"
@@ -221,19 +220,19 @@ msgstr ""
 "...\n"
 "192.168.0.115 usuario15"
 
-#: ../tcos-configurator.py:236
+#: ../tcos-configurator.py:293
 msgid "TCOS and Backharddi"
 msgstr "TCOS y Backharddi"
 
-#: ../tcos-configurator.py:237 ../tcos-configurator.py:242
+#: ../tcos-configurator.py:294 ../tcos-configurator.py:299
 msgid "TCOS"
 msgstr "TCOS"
 
-#: ../tcos-configurator.py:238
+#: ../tcos-configurator.py:295
 msgid "Backharddi"
 msgstr "Backharddi"
 
-#: ../tcos-configurator.py:393
+#: ../tcos-configurator.py:464
 msgid ""
 "WARNING:\n"
 "<b>Network interface don't have IP</b>"
@@ -241,7 +240,18 @@ msgstr ""
 "ADVERTENCIA:\n"
 "<b>El interfaz de red no tiene IP</b>"
 
-#: ../tcos-configurator.py:472
+#: ../tcos-configurator.py:483 ../tcos-configurator.py:488
+#, python-format
+msgid ""
+"Your %s file will be overwritten.\n"
+"\n"
+"Continue?"
+msgstr ""
+"El archivo %s será sobreescrito.\n"
+"\n"
+"¿Continuar?"
+
+#: ../tcos-configurator.py:553
 msgid ""
 "<b>Reboot required (or restart gdm/kdm daemon) to enable new GDM/KDM "
 "settings</b>"
@@ -249,32 +259,32 @@ msgstr ""
 "<b>Se necesita reiniciar el equipo (o el proceso gdm/kdm) para activar la "
 "nueva configuración de GDM/KDM</b>"
 
-#: ../tcos-configurator.py:509
+#: ../tcos-configurator.py:590
 #, python-format
 msgid "Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d"
 msgstr "Creando desde %(prefix)s%(init)02d hasta %(prefix)s%(end)02d"
 
-#: ../tcos-configurator.py:542
+#: ../tcos-configurator.py:623
 #, python-format
 msgid "Creating user: '%s'"
 msgstr "Creando usuario: '%s'"
 
-#: ../tcos-configurator.py:550
+#: ../tcos-configurator.py:631
 #, python-format
 msgid "User already exists: '%s'"
 msgstr "El usuario ya existe: '%s'"
 
-#: ../tcos-configurator.py:556 ../tcos-configurator.py:881
-#: ../tcos-configurator.py:904 ../tcos-configurator.py:1059
-#: ../tcos-configurator.py:1081
+#: ../tcos-configurator.py:637 ../tcos-configurator.py:972
+#: ../tcos-configurator.py:996 ../tcos-configurator.py:1156
+#: ../tcos-configurator.py:1178
 msgid "<b>Done</b>"
 msgstr "<b>Hecho</b>"
 
-#: ../tcos-configurator.py:736
+#: ../tcos-configurator.py:818
 msgid "Configuring DNSMASQ service..."
 msgstr "Configurando servicio DNSMASQ..."
 
-#: ../tcos-configurator.py:838
+#: ../tcos-configurator.py:925
 msgid ""
 "<b>Error writing /etc/dnsmasq.conf.</b>\n"
 "Are you root?"
@@ -282,27 +292,27 @@ msgstr ""
 "<b>Error escribiendo /etc/dnsmasq.conf.</b>\n"
 "¿Suficientes permisos?"
 
-#: ../tcos-configurator.py:871 ../tcos-configurator.py:1049
+#: ../tcos-configurator.py:962 ../tcos-configurator.py:1146
 msgid "Configured static network"
 msgstr "Configurado modo de red estático"
 
-#: ../tcos-configurator.py:886 ../tcos-configurator.py:1064
+#: ../tcos-configurator.py:977 ../tcos-configurator.py:1161
 msgid "ERROR:<b>Error configuring static network.</b>"
 msgstr "ERROR:<b>Error configurando la red estática.</b>"
 
-#: ../tcos-configurator.py:892
+#: ../tcos-configurator.py:983
 msgid "Restarting DNSMASQ service..."
 msgstr "Reiniciando servicio DNSMASQ..."
 
-#: ../tcos-configurator.py:906
+#: ../tcos-configurator.py:998
 msgid "<b>Error restarting DNSMASQ server.</b>"
 msgstr "<b>Error reiniciando servidor DNSMASQ</b>"
 
-#: ../tcos-configurator.py:914
+#: ../tcos-configurator.py:1006
 msgid "Configuring DHCP service..."
 msgstr "Configurando servicio DHCP..."
 
-#: ../tcos-configurator.py:1003
+#: ../tcos-configurator.py:1100
 msgid ""
 "<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
 "Are you root?"
@@ -310,10 +320,10 @@ msgstr ""
 "<b>Error escribiendo /etc/dhcp3/dhcpd.conf.</b>\n"
 "¿Suficientes permisos?"
 
-#: ../tcos-configurator.py:1070
+#: ../tcos-configurator.py:1167
 msgid "Restarting DHCP service..."
 msgstr "Reiniciando servicio DHCP..."
 
-#: ../tcos-configurator.py:1083
+#: ../tcos-configurator.py:1180
 msgid "<b>Error restarting DHCP server.</b>"
 msgstr "<b>Error reiniciando servidor DHCP</b>"

@@ -87,11 +87,11 @@ PACKAGE="tcos-configurator"
 # if exec from svn or sources dir
 if os.path.isfile('./setup.py'):
     LOCALE_DIR = "./po/"
-    GLADE_DIR = "./"
+    UI_DIR = "./"
     IMG_DIR = "./images/"
     print "exec in sources dir"
 else:
-    GLADE_DIR = "/usr/share/tcos-configurator/"
+    UI_DIR = "/usr/share/tcos-configurator/"
     IMG_DIR = "/usr/share/tcos-configurator/images/"
     LOCALE_DIR = "/usr/share/locale/"
 
@@ -301,18 +301,21 @@ class TcosStandalone:
         
         
         # Widgets
-        self.ui = gtk.glade.XML(GLADE_DIR + 'tcos-configurator.glade')
-        self.mainwindow = self.ui.get_widget('mainwindow')
+        self.ui = gtk.Builder()
+        self.ui.set_translation_domain(PACKAGE)
+        self.ui.add_from_file(UI_DIR + 'tcos-configurator.ui')
+        
+        self.mainwindow = self.ui.get_object('mainwindow')
         self.mainwindow.set_icon_from_file(IMG_DIR +'tcos-icon-32x32.png')
         
         # close windows signals
         self.mainwindow.connect('destroy', self.quitapp )
         self.mainwindow.connect('delete_event', self.quitapp)
         
-        self.button_quit=self.ui.get_widget("btn_quit")
+        self.button_quit=self.ui.get_object("btn_quit")
         self.button_quit.connect('clicked', self.quitapp)
         
-        self.window_autologin_help=self.ui.get_widget('window_autologin_help')
+        self.window_autologin_help=self.ui.get_object('window_autologin_help')
         self.window_autologin_help.set_icon_from_file(IMG_DIR +'tcos-icon-32x32.png')
         self.window_autologin_help.connect('destroy', self.hidehelp )
         self.window_autologin_help.connect('delete_event', self.hidehelp)
@@ -322,7 +325,7 @@ class TcosStandalone:
         for widget in ['img_logo', 'combo_interfaces', 'txt_serverip', 'txt_startip', 
                        'txt_endip', 'btn_configure_dhcp', 'combo_boot_mode', 'hbox_dynamic',
                        'ck_static', 'btn_hostname_help', 'txt_hostname_prefix', 'lbl_dhcp', 'label_boot_mode']:
-            self.w[widget]=self.ui.get_widget(widget)
+            self.w[widget]=self.ui.get_object(widget)
         
         self.w['lbl_dhcp'].set_text("")
         self.w['img_logo'].set_from_file(IMG_DIR + 'tcos-logo.png')
@@ -360,7 +363,7 @@ class TcosStandalone:
         
         # users
         for widget in ['scale_number_users', 'txt_prefix', 'txt_groups', 'lbl_users', 'btn_commit_users']:
-            self.w[widget]=self.ui.get_widget(widget)
+            self.w[widget]=self.ui.get_object(widget)
         
         self.w['txt_prefix'].connect('changed', self.on_scale_number_users)
         
@@ -375,7 +378,7 @@ class TcosStandalone:
         for widget in ['ck_remotelogin', 'ck_autologin', 'scale_autologin', 
                        'btn_commit_login', 'btn_autologin_help', 'lbl_login',
                        'btn_launch_tcosconfig']:
-            self.w[widget]=self.ui.get_widget(widget)
+            self.w[widget]=self.ui.get_object(widget)
         
         
         # read GDM_CONF_FILE
@@ -476,10 +479,14 @@ class TcosStandalone:
         self.w['btn_configure_dhcp'].set_sensitive(True)
 
     def on_btn_configure_dhcp(self, *args):
-        if os.path.isfile('/etc/init.d/dnsmasq'):
+        if os.path.isfile('/usr/sbin/dnsmasq'):
+            if not self.ask_msg( _("Your %s file will be overwritten.\n\nContinue?") %"/etc/dnsmasq.conf" ):
+                return
             th=Thread(target=self.configureDNSMASQ)
             th.start()
         else:
+            if not self.ask_msg( _("Your %s file will be overwritten.\n\nContinue?") %"/etc/dhcp3/dhcpd.conf" ):
+                return
             th=Thread(target=self.configureDHCP)
             th.start()
 
@@ -1075,7 +1082,7 @@ class TcosStandalone:
         }
         # backup old conf file
         
-        # generate /etc/dhcp3/dhcpd.conf
+        # generate /etc/dhcp3/dhcpd.confask_
         new_file=[]
         for block in DHCP_CONF:
             for line in block:
@@ -1182,6 +1189,20 @@ class TcosStandalone:
 
 ################################################################################
 
+    def ask_msg(self, txt):
+        response="yes"
+        d = gtk.MessageDialog(None,
+            gtk.DIALOG_MODAL |
+            gtk.DIALOG_DESTROY_WITH_PARENT,
+            gtk.MESSAGE_QUESTION,
+            gtk.BUTTONS_YES_NO,
+            txt)
+        if d.run() == gtk.RESPONSE_YES:
+            response=True
+        else:
+            response=False
+        d.destroy()
+        return response
 
     def exe_cmd(self, cmd, verbose=1):
         self.p = Popen(cmd, shell=True, bufsize=0, stdout=PIPE, stderr=STDOUT, close_fds=True)

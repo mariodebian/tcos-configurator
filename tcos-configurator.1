@@ -1,0 +1,38 @@
+.TH tcos-configurator 1 "Mar 21, 2011" "tcos-configurator man page"
+
+.SH NAME
+tcos-configurator \- Python GTK2 gui that configure DHCP TFTP and DNS cache for TCOS.
+
+.SH DESCRIPTION
+
+.PP
+\fBtcos-configurator\fP is a python GUI with configure following daemons :
+ * dnsmasq (as TFTP + DHCP + cache DNS)
+ * isc-dhcp-server (as DHCP server).
+ * GDM/KDM autologin
+ * Create users
+
+
+.SH OPTIONS
+.B [no options]
+ With no options will run in normal mode.
+
+.B --help
+ Some usage help about tcosmonitor
+
+.B --debug
+ Show verbose output when running
+
+.B --simulate
+ Dry run, don't change files
+
+.SH BUGS
+Contact Mario Izquierdo <mariodebian@gmail.com>
+
+Homepage: http://www.tcosproject.org
+
+.SH SEE ALSO
+tcosmonitor(1)
+
+.SH AUTHOR
+Mario Izquierdo (mariodebian) <mariodebian@gmail.com>

@@ -2,7 +2,7 @@ Source: tcos-configurator
 Section: gnome
 Priority: optional
 Maintainer: Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
-Build-Depends: debhelper (>= 7.0.0), python (>= 2.6.6-3~)
+Build-Depends: debhelper (>= 7.0.50~), python (>= 2.6.6-3~)
 Standards-Version: 3.9.2
 Vcs-Git: http://tcosproject.org/git/tcos-configurator.git
 Vcs-Browser: http://tcosproject.org/cgit/tcos-configurator.git/
@@ -10,7 +10,7 @@ Homepage: http://www.tcosproject.org
 
 Package: tcos-configurator
 Architecture: all
-Depends: tcosconfig, gksu, python-gtk2, python-glade2, python-netifaces, 
+Depends: tcosconfig, gksu, python, python-gtk2, python-glade2, python-netifaces, 
          python-configobj, ${misc:Depends}, ${shlibs:Depends}
 Description: PyGTK tool to configure some needed services to get a TCOS server
  This tool configure dnsmasq or isc-dhcp-server to boot TCOS thin clients.

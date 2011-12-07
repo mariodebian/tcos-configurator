@@ -1,3 +1,13 @@
+tcos-configurator (1.22) unstable; urgency=low
+
+  * tcos-configurator.desktop: change gksu with su-to-root
+  * debian/changelog: split a very long line
+  * debian/control: 
+    - Add python to Depends
+    - Use debhelper >=7.0.50 for dh7 package
+
+ -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Wed, 07 Dec 2011 23:32:24 +0100
+
 tcos-configurator (1.21) unstable; urgency=low
 
   * Convert glade to gtkbuilder

@@ -10,6 +10,8 @@ tcos-configurator (1.22) unstable; urgency=low
 
 tcos-configurator (1.21) unstable; urgency=low
 
+  * Promoted by "Antonio Pérez-Aranda <ant30tx@gmail.com>"
+             from Yaco Sistemas SL <www.yaco.es>
   * Convert glade to gtkbuilder
   * tcos-configurator: Change glade to GtkBuilder 
     and ask before overwriting files

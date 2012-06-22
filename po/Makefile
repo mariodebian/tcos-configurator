@@ -1,4 +1,4 @@
-LANGUAGES=es pt_BR gl
+LANGUAGES=es pt_BR gl fr
 PACKAGE=tcos-configurator
 
 all:

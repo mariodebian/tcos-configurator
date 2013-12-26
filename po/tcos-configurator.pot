@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-21 19:41+0100\n"
+"POT-Creation-Date: 2013-12-26 18:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,123 +17,220 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../tcos-configurator.glade:9
+#: ../tcos-configurator.py:302
+msgid "TCOS and Backharddi"
+msgstr ""
+
+#: ../tcos-configurator.py:303 ../tcos-configurator.py:308
+msgid "TCOS"
+msgstr ""
+
+#: ../tcos-configurator.py:304
+msgid "Backharddi"
+msgstr ""
+
+#: ../tcos-configurator.py:473
+msgid ""
+"WARNING:\n"
+"<b>Network interface don't have IP</b>"
+msgstr ""
+
+#: ../tcos-configurator.py:492 ../tcos-configurator.py:497
+#, python-format
+msgid ""
+"Your %s file will be overwritten.\n"
+"\n"
+"Continue?"
+msgstr ""
+
+#: ../tcos-configurator.py:565
+msgid ""
+"<b>Reboot required (or restart gdm/kdm/lightdm daemon) to enable new GDM/KDM/"
+"LightDM settings</b>"
+msgstr ""
+
+#: ../tcos-configurator.py:605
+#, python-format
+msgid "Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d"
+msgstr ""
+
+#: ../tcos-configurator.py:638
+#, python-format
+msgid "Creating user: '%s'"
+msgstr ""
+
+#: ../tcos-configurator.py:646
+#, python-format
+msgid "User already exists: '%s'"
+msgstr ""
+
+#: ../tcos-configurator.py:652 ../tcos-configurator.py:987
+#: ../tcos-configurator.py:1011 ../tcos-configurator.py:1171
+#: ../tcos-configurator.py:1193
+msgid "<b>Done</b>"
+msgstr ""
+
+#: ../tcos-configurator.py:833
+msgid "Configuring DNSMASQ service..."
+msgstr ""
+
+#: ../tcos-configurator.py:940
+msgid ""
+"<b>Error writing /etc/dnsmasq.conf.</b>\n"
+"Are you root?"
+msgstr ""
+
+#: ../tcos-configurator.py:977 ../tcos-configurator.py:1161
+msgid "Configured static network"
+msgstr ""
+
+#: ../tcos-configurator.py:992 ../tcos-configurator.py:1176
+msgid "ERROR:<b>Error configuring static network.</b>"
+msgstr ""
+
+#: ../tcos-configurator.py:998
+msgid "Restarting DNSMASQ service..."
+msgstr ""
+
+#: ../tcos-configurator.py:1013
+msgid "<b>Error restarting DNSMASQ server.</b>"
+msgstr ""
+
+#: ../tcos-configurator.py:1021
+msgid "Configuring DHCP service..."
+msgstr ""
+
+#: ../tcos-configurator.py:1115
+msgid ""
+"<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
+"Are you root?"
+msgstr ""
+
+#: ../tcos-configurator.py:1182
+msgid "Restarting DHCP service..."
+msgstr ""
+
+#: ../tcos-configurator.py:1195
+msgid "<b>Error restarting DHCP server.</b>"
+msgstr ""
+
+#: ../tcos-configurator.ui:23
 msgid "TCOS Server configurator"
 msgstr ""
 
-#: ../tcos-configurator.glade:53
+#: ../tcos-configurator.ui:63
 msgid "<span size=\"x-large\">Configure TCOS server</span>"
 msgstr ""
 
-#: ../tcos-configurator.glade:105
+#: ../tcos-configurator.ui:112
 msgid "DHCP net interface"
 msgstr ""
 
-#: ../tcos-configurator.glade:150
+#: ../tcos-configurator.ui:155
 msgid "Start IP"
 msgstr ""
 
-#: ../tcos-configurator.glade:199
+#: ../tcos-configurator.ui:202
 msgid "End IP"
 msgstr ""
 
-#: ../tcos-configurator.glade:318 ../tcos-configurator.glade:861
-#: ../tcos-configurator.glade:1140
+#: ../tcos-configurator.ui:314 ../tcos-configurator.ui:827
+#: ../tcos-configurator.ui:1089
 msgid "Commit changes"
 msgstr ""
 
-#: ../tcos-configurator.glade:357
+#: ../tcos-configurator.ui:352
 msgid "Boot mode"
 msgstr ""
 
-#: ../tcos-configurator.glade:403
+#: ../tcos-configurator.ui:395
 msgid "Server IP"
 msgstr ""
 
-#: ../tcos-configurator.glade:457
+#: ../tcos-configurator.ui:446
 msgid ""
 "WARNING:\n"
 "<b>Detected dynamic IP</b>"
 msgstr ""
 
-#: ../tcos-configurator.glade:484
+#: ../tcos-configurator.ui:472
 msgid ""
 "configure this IP as static\n"
 "(disable NetworkManager)"
 msgstr ""
 
-#: ../tcos-configurator.glade:516
+#: ../tcos-configurator.ui:503
 msgid "host"
 msgstr ""
 
-#: ../tcos-configurator.glade:539
+#: ../tcos-configurator.ui:524
 msgid "Hostname prefix"
 msgstr ""
 
-#: ../tcos-configurator.glade:606
+#: ../tcos-configurator.ui:588
 msgid "DHCP server"
 msgstr ""
 
-#: ../tcos-configurator.glade:639
+#: ../tcos-configurator.ui:616
 msgid "Numer of users to create"
 msgstr ""
 
-#: ../tcos-configurator.glade:667
+#: ../tcos-configurator.ui:643
 msgid "Prefix"
 msgstr ""
 
-#: ../tcos-configurator.glade:722
+#: ../tcos-configurator.ui:696
 msgid ""
 "Groups to add users\n"
 "(use spaces to separate)\n"
 "(default fuse)\n"
 msgstr ""
 
-#: ../tcos-configurator.glade:778
+#: ../tcos-configurator.ui:750
 msgid "user"
 msgstr ""
 
-#: ../tcos-configurator.glade:900
+#: ../tcos-configurator.ui:865
 msgid "<b>Passwords are same string as username</b>"
 msgstr ""
 
-#: ../tcos-configurator.glade:934
+#: ../tcos-configurator.ui:898
 msgid "Remote users"
 msgstr ""
 
-#: ../tcos-configurator.glade:975
+#: ../tcos-configurator.ui:933
 msgid "enable autologin"
 msgstr ""
 
-#: ../tcos-configurator.glade:995
+#: ../tcos-configurator.ui:952
 msgid ""
 "Autologin timeout\n"
 "(in seconds)"
 msgstr ""
 
-#: ../tcos-configurator.glade:1046
+#: ../tcos-configurator.ui:1001
 msgid ""
 "Remote login\n"
 "(required for TCOS)"
 msgstr ""
 
-#: ../tcos-configurator.glade:1076
+#: ../tcos-configurator.ui:1030
 msgid "enable remote login"
 msgstr ""
 
-#: ../tcos-configurator.glade:1212
+#: ../tcos-configurator.ui:1158
 msgid "Autologin"
 msgstr ""
 
-#: ../tcos-configurator.glade:1286
+#: ../tcos-configurator.ui:1229
 msgid "Login manager"
 msgstr ""
 
-#: ../tcos-configurator.glade:1361
+#: ../tcos-configurator.ui:1295
 msgid "Launch TcosConfig"
 msgstr ""
 
-#: ../tcos-configurator.glade:1400
+#: ../tcos-configurator.ui:1333
 msgid ""
 "TcosConfig is a tool to generate TCOS network boot images. The images are "
 "downloaded using PXE protocol.\n"
@@ -142,19 +239,19 @@ msgid ""
 "settings."
 msgstr ""
 
-#: ../tcos-configurator.glade:1435
+#: ../tcos-configurator.ui:1367
 msgid "Boot images"
 msgstr ""
 
-#: ../tcos-configurator.glade:1492
+#: ../tcos-configurator.ui:1418
 msgid "Autologin help"
 msgstr ""
 
-#: ../tcos-configurator.glade:1516
+#: ../tcos-configurator.ui:1440
 msgid "<b>TCOS Autologin</b>"
 msgstr ""
 
-#: ../tcos-configurator.glade:1541
+#: ../tcos-configurator.ui:1464
 msgid ""
 "TCOS can work in kiosk mode.\n"
 "\n"
@@ -164,121 +261,24 @@ msgid ""
 "Example:"
 msgstr ""
 
-#: ../tcos-configurator.glade:1570
+#: ../tcos-configurator.ui:1492
 msgid ""
 "<b>Users:</b> from user01 to user15\n"
 "<b>Hostnames:</b> from user01 to user15"
 msgstr ""
 
-#: ../tcos-configurator.glade:1596
+#: ../tcos-configurator.ui:1517
 msgid ""
 "<b>1.-</b> Create users with tcos-configurator\n"
 "<b>2.-</b> Configure DHCP with a 15 IP's range (or more)\n"
 "<b>3.-</b> Edit <b>/etc/hosts</b> and add this:"
 msgstr ""
 
-#: ../tcos-configurator.glade:1623
+#: ../tcos-configurator.ui:1543
 msgid ""
 "192.168.0.101 user01\n"
 "192.168.0.102 user02\n"
 "192.168.0.103 user03\n"
 "...\n"
 "192.168.0.115 user15"
-msgstr ""
-
-#: ../tcos-configurator.py:293
-msgid "TCOS and Backharddi"
-msgstr ""
-
-#: ../tcos-configurator.py:294 ../tcos-configurator.py:299
-msgid "TCOS"
-msgstr ""
-
-#: ../tcos-configurator.py:295
-msgid "Backharddi"
-msgstr ""
-
-#: ../tcos-configurator.py:464
-msgid ""
-"WARNING:\n"
-"<b>Network interface don't have IP</b>"
-msgstr ""
-
-#: ../tcos-configurator.py:483 ../tcos-configurator.py:488
-#, python-format
-msgid ""
-"Your %s file will be overwritten.\n"
-"\n"
-"Continue?"
-msgstr ""
-
-#: ../tcos-configurator.py:553
-msgid ""
-"<b>Reboot required (or restart gdm/kdm daemon) to enable new GDM/KDM "
-"settings</b>"
-msgstr ""
-
-#: ../tcos-configurator.py:590
-#, python-format
-msgid "Creating from %(prefix)s%(init)02d to %(prefix)s%(end)02d"
-msgstr ""
-
-#: ../tcos-configurator.py:623
-#, python-format
-msgid "Creating user: '%s'"
-msgstr ""
-
-#: ../tcos-configurator.py:631
-#, python-format
-msgid "User already exists: '%s'"
-msgstr ""
-
-#: ../tcos-configurator.py:637 ../tcos-configurator.py:972
-#: ../tcos-configurator.py:996 ../tcos-configurator.py:1156
-#: ../tcos-configurator.py:1178
-msgid "<b>Done</b>"
-msgstr ""
-
-#: ../tcos-configurator.py:818
-msgid "Configuring DNSMASQ service..."
-msgstr ""
-
-#: ../tcos-configurator.py:925
-msgid ""
-"<b>Error writing /etc/dnsmasq.conf.</b>\n"
-"Are you root?"
-msgstr ""
-
-#: ../tcos-configurator.py:962 ../tcos-configurator.py:1146
-msgid "Configured static network"
-msgstr ""
-
-#: ../tcos-configurator.py:977 ../tcos-configurator.py:1161
-msgid "ERROR:<b>Error configuring static network.</b>"
-msgstr ""
-
-#: ../tcos-configurator.py:983
-msgid "Restarting DNSMASQ service..."
-msgstr ""
-
-#: ../tcos-configurator.py:998
-msgid "<b>Error restarting DNSMASQ server.</b>"
-msgstr ""
-
-#: ../tcos-configurator.py:1006
-msgid "Configuring DHCP service..."
-msgstr ""
-
-#: ../tcos-configurator.py:1100
-msgid ""
-"<b>Error writing /etc/dhcp3/dhcpd.conf.</b>\n"
-"Are you root?"
-msgstr ""
-
-#: ../tcos-configurator.py:1167
-msgid "Restarting DHCP service..."
-msgstr ""
-
-#: ../tcos-configurator.py:1180
-msgid "<b>Error restarting DHCP server.</b>"
 msgstr ""

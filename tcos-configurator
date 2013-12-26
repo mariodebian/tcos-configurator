@@ -260,6 +260,14 @@ KDM_CONF_FILE="/etc/kde4/kdm/kdmrc"
 KDM_ACCESS_FILE="/etc/kde4/kdm/Xaccess"
 KDM_ACCESS_LINE="#any host can get a login window"
 
+LIGHTDM_CONFIG={
+"XDMCPServer":[
+         {"enabled":"true"}
+              ]
+}
+LIGHTDM_CONF_FILE="/etc/lightdm/lightdm.conf"
+
+
 HIDDEN_INTERFACES=['lo', 'pan0', 'sit0']
 
 DNSMASQ_FILE="/etc/dnsmasq.conf"
@@ -550,8 +558,11 @@ class TcosStandalone:
                 f.write(line)
             f.close()
         
+        if os.path.isfile(LIGHTDM_CONF_FILE):
+            self.SetVar("XDMCPServer", "enabled", "true", CONF=LIGHTDM_CONF_FILE)
+
         # show message to reboot required
-        self.w['lbl_login'].set_markup( _("<b>Reboot required (or restart gdm/kdm daemon) to enable new GDM/KDM settings</b>") )
+        self.w['lbl_login'].set_markup( _("<b>Reboot required (or restart gdm/kdm/lightdm daemon) to enable new GDM/KDM/LightDM settings</b>") )
         self.w['lbl_login'].show()
         return
 
@@ -559,6 +570,9 @@ class TcosStandalone:
         if os.path.isfile(KDM_CONF_FILE):
             self.SetVar("Xdmcp", "Enable", "false", CONF=KDM_CONF_FILE)
         self.SetVar("xdmcp","Enable","false")
+
+        if os.path.isfile(LIGHTDM_CONF_FILE):
+            self.SetVar("XDMCPServer", "enabled", "false", CONF=LIGHTDM_CONF_FILE)
 
     def SetVar(self, section, key, value, do=True, CONF=GDM_CONF_FILE):
         if not do:

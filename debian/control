@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Mario Izquierdo (mariodebian) <mariodebian@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~), python (>= 2.6.6-3~)
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Vcs-Git: http://tcosproject.org/git/tcos-configurator.git
 Vcs-Browser: http://tcosproject.org/cgit/tcos-configurator.git/
 Homepage: http://www.tcosproject.org

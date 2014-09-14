@@ -11,10 +11,15 @@ clean:
 		rm -rf $$lang;\
 	done
 
-files:
-	find ../ -name "*.py" -o -name "*.glade" > FILES
+files: pot
+
 pot:
-	xgettext  -o $(PACKAGE).pot --files-from=FILES
+	echo ../tcos-configurator.py > FILES.py.txt
+	echo ../tcos-configurator.ui > FILES.ui.txt
+	xgettext -o tcos-configurator.py.pot --files-from=FILES.py.txt --language=Python
+	xgettext -o tcos-configurator.ui.pot --files-from=FILES.ui.txt --language=Glade
+	msgcat -o tcos-configurator.pot tcos-configurator.py.pot tcos-configurator.ui.pot
+	rm -f FILES.py.txt FILES.ui.txt tcos-configurator.py.pot tcos-configurator.ui.pot
 
 po:
 	@for lang in $(LANGUAGES); do \

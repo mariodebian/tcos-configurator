@@ -1,8 +1,8 @@
-tcos-configurator (1.24) unstable; urgency=medium
+tcos-configurator (1.24) unstable; urgency=low
 
-  * Bump standards version to 3.9.5, no changes needed
+  * Support lightdm and update translations, github issue #1
 
- -- Mario Izquierdo (mariodebian) <mariodebian@gmail.com>  Sun, 14 Sep 2014 16:17:49 +0200
+ -- Mario Izquierdo Rodríguez (Thinetic Systems SLNE) <mario.izquierdo@thinetic.es>  Thu, 26 Dec 2013 18:08:49 +0100
 
 tcos-configurator (1.23) unstable; urgency=low
 
